@@ -3,38 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Museum Herman De Cuyper — English</title>
+  <title>Contact — Museum Herman De Cuyper</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <header class="site-header">
-  <nav class="nav-inner" aria-label="Navigation">
-    <a href="../nl/contact.html" class="site-logo">
-      Herman De Cuyper
-      <span>Museum · Blaasveld</span>
-    </a>
+  <nav class="nav-inner">
+    <a href="index.html" class="site-logo">Herman De Cuyper<span>Museum · Blaasveld</span></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="museum.html">The museum</a></li>
+      <li><a href="biografie.html">Biography</a></li>
+      <li><a href="collectie.html">Collection</a></li>
+      <li><a href="evolutie.html">Artistic evolution</a></li>
+      <li><a href="klein-brabant.html">Klein-Brabant</a></li>
+      <li><a href="activiteiten.html">Activities</a></li>
+      <li><a href="informatie.html">Information</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
     <div class="taal-switch">
       <a href="../nl/contact.html" hreflang="nl">NL</a>
-      <a href="../en/contact.html" hreflang="en">EN</a>
+      <a href="../fr/contact.html" hreflang="fr">FR</a>
     </div>
   </nav>
 </header>
 <div class="page-header">
   <div class="page-header-inner">
-    <h1>Museum Herman De Cuyper</h1>
+    <h1>Contact &amp; Visit</h1>
+    <p class="ondertitel">Address, opening hours and directions</p>
   </div>
 </div>
 <main class="site-main">
-  <div class="infokaart">
-    <h2>English</h2>
-    <p>The English version will be available soon.</p>
-    <p style="margin-top:1.2rem;">
-      <a href="../index.html">← Back to language selection</a>
-    </p>
+  <div class="contact-grid">
+    <div class="contact-veld">
+      <h2>Address &amp; Access</h2>
+      <address>
+        Museum Herman De Cuyper<br>
+        Mechelsesteenweg 249<br>
+        B-2830 Blaasveld (Willebroek)<br>
+        Belgium<br><br>
+        <strong>Phone:</strong> <a href="tel:+3232945085">+32 (0)3 294 50 85</a><br>
+        <strong>E-mail:</strong> <a href="mailto:info@museumhermandecuyper.be">info@museumhermandecuyper.be</a><br>
+        <strong>Curator:</strong> Chris De Cuyper
+      </address>
+      <a href="https://maps.google.com/?q=Mechelsesteenweg+249+Blaasveld" target="_blank" rel="noopener" class="kaart-link">View on map →</a>
+    </div>
+    <div class="contact-veld">
+      <h2>Opening hours &amp; Admission</h2>
+      <dl style="display:grid; grid-template-columns: auto 1fr; gap:.4rem 1rem; font-size:.93rem;">
+        <dt style="font-weight:600; color:var(--tactile-steen);">Open</dt>
+        <dd>Monday to Sunday, 10 am – 6 pm</dd>
+        <dt style="font-weight:600; color:var(--tactile-steen);">Closed</dt>
+        <dd>On official holidays</dd>
+        <dt style="font-weight:600; color:var(--tactile-steen);">Admission</dt>
+        <dd>Free for individual visitors</dd>
+        <dt style="font-weight:600; color:var(--tactile-steen);">Groups</dt>
+        <dd>Guided tours: 60 euro</dd>
+      </dl>
+      <p style="margin-top:1.2rem; font-size:.88rem; color:var(--tactile-steen);"><strong>Public transport:</strong><br>
+        Bus De Lijn line 286 Mechelen–Willebroek–Boom<br>
+        Bus De Lijn line 287 Mechelen–Heindonk–Willebroek<br>
+        (stop Hinxelaar)
+      </p>
+    </div>
+  </div>
+
+  <h2 class="sectie">Get in touch</h2>
+  <div class="contact-grid">
+    <div class="contact-veld">
+      <h2>Questions &amp; Feedback</h2>
+      <div class="contact-opt">
+        <h3>I am thinking about purchasing a work</h3>
+        <a href="mailto:info@museumhermandecuyper.be?subject=Purchase">Send an e-mail →</a>
+      </div>
+      <div class="contact-opt">
+        <h3>I own a work of Herman De Cuyper</h3>
+        <p>Do you own a work and wish more information or would you like to have it registered?</p>
+        <a href="mailto:info@museumhermandecuyper.be?subject=Work+in+my+possession">Send an e-mail →</a>
+      </div>
+      <div class="contact-opt">
+        <h3>I visited this site and would like to add my comments</h3>
+        <a href="mailto:info@museumhermandecuyper.be?subject=Website">Send an e-mail →</a>
+      </div>
+    </div>
+    <div class="contact-veld">
+      <h2>Map</h2>
+      <figure class="beeld" style="margin:0;">
+        <img src="../images/plan.gif" alt="Map to the museum" loading="lazy" style="width:100%; border-radius:2px;">
+        <figcaption>Location map — Mechelsesteenweg 249, Blaasveld</figcaption>
+      </figure>
+    </div>
   </div>
 </main>
 <footer class="site-footer">
   <p>© Museum Herman De Cuyper · Mechelsesteenweg 249 · B-2830 Blaasveld (Willebroek)</p>
+  <p>Curator: Chris De Cuyper · <a href="mailto:info@museumhermandecuyper.be">info@museumhermandecuyper.be</a></p>
 </footer>
 <script src="../js/nav.js"></script>
 </body>
