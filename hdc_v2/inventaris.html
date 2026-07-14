@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventaris beeldhouwwerken — Museum Herman De Cuyper</title>
+  <meta name="description" content="Doorzoekbare inventaris van 350+ beeldhouwwerken uit de nalatenschap van Herman De Cuyper, met materiaal, datering en afmetingen.">
+
+  <!-- Site navigatie lettertypes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@300;400;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Site navigatie stijlen -->
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Inventaris eigen stijlen (dark theme) -->
+  <style>
+    /* Reset body voor inventaris dark theme */
+    body {
+      background: #292b21 !important;
+      background-image:
+        radial-gradient(ellipse at top left, rgba(111,128,102,0.10), transparent 55%),
+        radial-gradient(ellipse at bottom right, rgba(169,103,61,0.08), transparent 55%) !important;
+      color: #efece2 !important;
+    }
+
+    /* Zorg dat site-header bovenaan blijft en niet door inventaris controls wordt overschreven */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+
+    /* Controls wrap z-index lager dan site-header */
+    .controls-wrap {
+      z-index: 20 !important;
+    }
+
+
+  :root{
+    --ink:#23241d;
+    --bg-dark:#292b21;
+    --bg-dark-2:#333527;
+    --paper:#efece2;
+    --paper-deep:#e4dfcf;
+    --paper-line: rgba(35,36,29,0.14);
+    --accent-patina:#6f8066;
+    --accent-patina-deep:#556552;
+    --accent-copper:#a9673d;
+    --cream-text:#efece2;
+    --muted: rgba(239,236,226,0.62);
+    --muted-ink: rgba(35,36,29,0.6);
+    --radius: 3px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg-dark);
+    background-image:
+      radial-gradient(ellipse at top left, rgba(111,128,102,0.10), transparent 55%),
+      radial-gradient(ellipse at bottom right, rgba(169,103,61,0.08), transparent 55%);
+    color:var(--cream-text);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+  }
+  ::selection{ background:var(--accent-copper); color:#fff; }
+
+  a{ color:inherit; }
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding: 48px 32px 28px;
+    max-width:1280px;
+    margin:0 auto;
+    border-bottom:1px solid rgba(239,236,226,0.16);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--accent-patina);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--accent-patina);
+    display:inline-block;
+  }
+  h1.title{
+    font-family:'Fraunces', serif;
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:clamp(34px, 5.4vw, 62px);
+    line-height:1.02;
+    margin:0 0 6px;
+    letter-spacing:-0.01em;
+  }
+  h1.title em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--accent-patina);
+  }
+  .subtitle{
+    font-size:15px;
+    color:var(--muted);
+    max-width:620px;
+    line-height:1.55;
+    margin-top:14px;
+  }
+  .stamp-row{
+    display:flex;
+    gap:28px;
+    margin-top:28px;
+    flex-wrap:wrap;
+    align-items:flex-end;
+  }
+  .stamp{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .stamp .num{
+    font-size:28px;
+    font-weight:500;
+    color:var(--paper);
+    display:block;
+    line-height:1;
+  }
+  .stamp .lbl{
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:block;
+    margin-top:6px;
+  }
+
+  /* ---------- Controls ---------- */
+  .controls-wrap{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:linear-gradient(var(--bg-dark) 78%, transparent);
+    padding-top:18px;
+  }
+  .controls{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 0 32px 18px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .search-box{
+    flex:1 1 320px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    background:var(--paper);
+    border-radius:var(--radius);
+    border:1px solid transparent;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .search-box:focus-within{
+    border-color:var(--accent-patina);
+    box-shadow:0 0 0 3px rgba(111,128,102,0.25);
+  }
+  .search-box svg{
+    margin-left:14px;
+    flex-shrink:0;
+    color:var(--muted-ink);
+  }
+  .search-box input{
+    flex:1;
+    border:none;
+    background:transparent;
+    padding:13px 14px 13px 10px;
+    font-family:'Work Sans', sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+    outline:none;
+  }
+  .search-box input::placeholder{ color: rgba(35,36,29,0.42); }
+  .clear-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:var(--muted-ink);
+    padding:6px 12px;
+    font-size:13px;
+    display:none;
+  }
+  .clear-btn.show{ display:inline-block; }
+
+  select{
+    appearance:none;
+    -webkit-appearance:none;
+    background:var(--paper) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="6"><path d="M0 0L5 6L10 0Z" fill="%2323241d"/></svg>') no-repeat right 13px center;
+    border:1px solid transparent;
+    border-radius:var(--radius);
+    padding:12px 34px 12px 14px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    color:var(--ink);
+    cursor:pointer;
+    outline:none;
+  }
+  select:focus{
+    border-color:var(--accent-patina);
+    box-shadow:0 0 0 3px rgba(111,128,102,0.25);
+  }
+
+  .result-count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--muted);
+    padding: 0 32px 16px;
+    max-width:1280px;
+    margin:0 auto;
+    letter-spacing:0.03em;
+  }
+  .result-count b{ color:var(--accent-patina); font-weight:500; }
+
+  /* ---------- Grid ---------- */
+  main{
+    max-width:1280px;
+    margin:0 auto;
+    padding: 6px 32px 80px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:22px;
+  }
+
+  .card{
+    background:var(--paper);
+    border-radius:var(--radius);
+    overflow:hidden;
+    color:var(--ink);
+    cursor:pointer;
+    position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 28px rgba(0,0,0,0.28);
+  }
+  .card:focus-visible{
+    outline:2px solid var(--accent-patina);
+    outline-offset:3px;
+  }
+
+  .card-media{
+    aspect-ratio: 1 / 1;
+    background:var(--paper-deep);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .card-media img{
+    width:100%; height:100%;
+    object-fit:contain;
+    display:block;
+  }
+  .placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color: rgba(35,36,29,0.32);
+    width:100%; height:100%;
+    background:
+      repeating-linear-gradient(135deg, rgba(35,36,29,0.045) 0px, rgba(35,36,29,0.045) 2px, transparent 2px, transparent 14px);
+  }
+  .placeholder svg{ width:34px; height:34px; opacity:.9; }
+  .ph-file{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:9.5px;
+    letter-spacing:0.02em;
+    color: rgba(35,36,29,0.4);
+    background:rgba(35,36,29,0.06);
+    padding:3px 7px;
+    border-radius:2px;
+  }
+
+  .card-media.scrub{ cursor:ew-resize; }
+  .photo-count-badge{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    background:rgba(35,36,29,0.72);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.03em;
+    padding:3px 7px;
+    border-radius:2px;
+    pointer-events:none;
+    z-index:3;
+  }
+  .photo-dots{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    right:10px;
+    display:flex;
+    gap:4px;
+    pointer-events:none;
+    z-index:3;
+  }
+  .photo-dots span{
+    flex:1;
+    height:2.5px;
+    background:rgba(239,236,226,0.4);
+    border-radius:2px;
+    transition:background .1s ease;
+  }
+  .photo-dots span.active{ background:var(--paper); }
+
+  .stamp-badge{
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.03em;
+    padding:4px 8px;
+    border-radius:2px;
+    transform:rotate(2.5deg);
+    box-shadow:0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  .kavel-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:rgba(239,236,226,0.88);
+    color:var(--ink);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10px;
+    letter-spacing:0.03em;
+    padding:3px 7px;
+    border-radius:2px;
+  }
+
+  .card-body{
+    padding:14px 15px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    flex:1;
+  }
+  .card-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:16.5px;
+    line-height:1.25;
+    letter-spacing:-0.005em;
+  }
+  .card-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color: rgba(35,36,29,0.62);
+    line-height:1.6;
+  }
+  .card-meta .dim{ color: rgba(35,36,29,0.42); }
+  .card-tags{
+    margin-top:auto;
+    padding-top:8px;
+    border-top:1px solid var(--paper-line);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    color: rgba(35,36,29,0.55);
+  }
+  .plaats-flag{
+    color:var(--accent-copper);
+    font-weight:500;
+    max-width:60%;
+    text-align:right;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .plaats-flag.flag-prive{ color:var(--accent-patina-deep); }
+  .plaats-flag.flag-publiek{ color:#3f6f8f; }
+  .plaats-flag.flag-geschonken{ color:var(--accent-copper); }
+
+  /* ---------- Empty state ---------- */
+  .empty-state{
+    grid-column:1/-1;
+    text-align:center;
+    padding:70px 20px;
+    color:var(--muted);
+  }
+  .empty-state svg{ opacity:.5; margin-bottom:14px; }
+  .empty-state h3{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:22px;
+    color:var(--paper);
+    margin:0 0 8px;
+  }
+  .empty-state p{ font-size:13.5px; margin:0; }
+  .empty-state button{
+    margin-top:18px;
+    background:var(--accent-patina);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:var(--radius);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    cursor:pointer;
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- Modal ---------- */
+  .overlay{
+    position:fixed; inset:0;
+    background:rgba(15,16,11,0.72);
+    backdrop-filter:blur(3px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+    z-index:100;
+  }
+  .overlay.open{ display:flex; }
+  .modal{
+    background:var(--paper);
+    color:var(--ink);
+    max-width:820px;
+    width:100%;
+    max-height:88vh;
+    overflow:auto;
+    border-radius:4px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    position:relative;
+    box-shadow:0 30px 70px rgba(0,0,0,0.5);
+  }
+  @media (max-width:680px){
+    .modal{ grid-template-columns:1fr; }
+  }
+  .modal-media{
+    background:var(--paper-deep);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:280px;
+    position:relative;
+  }
+  .modal-media img{ width:100%; height:100%; object-fit:contain; display:block; }
+  .modal-nav{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(35,36,29,0.6);
+    color:var(--paper);
+    border:none;
+    width:34px; height:34px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:4;
+  }
+  .modal-nav.prev{ left:12px; }
+  .modal-nav.next{ right:12px; }
+  .modal-photo-count{
+    position:absolute;
+    bottom:12px;
+    right:12px;
+    background:rgba(35,36,29,0.65);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    padding:4px 9px;
+    border-radius:2px;
+    z-index:4;
+  }
+  .modal-info{
+    padding:34px 32px;
+    display:flex;
+    flex-direction:column;
+  }
+  .modal-close{
+    position:absolute;
+    top:14px; right:14px;
+    background:var(--ink);
+    color:var(--paper);
+    border:none;
+    width:32px; height:32px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .modal-eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent-patina-deep);
+    margin-bottom:10px;
+  }
+  .modal-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:28px;
+    line-height:1.1;
+    margin:0 0 20px;
+  }
+  .modal-table{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    border-top:1px solid var(--paper-line);
+  }
+  .modal-table div{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:11px 0;
+    border-bottom:1px solid var(--paper-line);
+  }
+  .modal-table span:first-child{
+    color: rgba(35,36,29,0.5);
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    font-size:10.5px;
+    padding-top:2px;
+  }
+  .modal-table span:last-child{
+    text-align:right;
+    max-width:60%;
+  }
+  .modal-note{
+    margin-top:20px;
+    font-size:12px;
+    color: rgba(35,36,29,0.5);
+    line-height:1.5;
+  }
+
+  footer{
+    max-width:1280px;
+    margin:0 auto;
+    padding:20px 32px 50px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    border-top:1px solid rgba(239,236,226,0.14);
+    margin-top:10px;
+    line-height:1.7;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{ transition:none; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- Site navigatie -->
+<header class="site-header">
+  <nav class="nav-inner" aria-label="Hoofdnavigatie">
+    <a href="../nl/index.html" class="site-logo">Herman De Cuyper<span>Museum · Blaasveld</span></a>
+    <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="../nl/index.html">Home</a></li>
+      <li><a href="../nl/museum.html">Museum</a></li>
+      <li><a href="../nl/biografie.html">Biografie</a></li>
+      <li><a href="../nl/collectie.html">Collectie</a></li>
+      <li><a href="../nl/evolutie.html">Artistieke evolutie</a></li>
+      <li><a href="../nl/klein-brabant.html">Klein-Brabant</a></li>
+      <li><a href="../nl/activiteiten.html">Activiteiten</a></li>
+      <li><a href="../nl/informatie.html">Informatie</a></li>
+      <li><a href="../nl/contact.html">Contact</a></li>
+      <li><a href="inventaris.html" class="actief">Inventaris</a></li>
+    </ul>
+    <div class="taal-switch">
+      <a href="../fr/index.html" hreflang="fr">FR</a>
+      <a href="../en/index.html" hreflang="en">EN</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Inventaris inhoud -->
+
+
+<header class="masthead">
+  <div class="eyebrow">Archief · Beeldhouwwerk</div>
+  <h1 class="title">Inventaris <em>Herman De Cuyper</em></h1>
+  <p class="subtitle">Doorzoekbare catalogus van de beeldhouwwerken uit de nalatenschap. Elk werk is genummerd per kavel, met materiaal, datering en afmetingen zoals opgenomen in het inventarisregister.</p>
+  <div class="stamp-row">
+    <div class="stamp"><span class="num" id="statTotal">—</span><span class="lbl">werken</span></div>
+    <div class="stamp"><span class="num" id="statKavels">—</span><span class="lbl">kavels</span></div>
+    <div class="stamp"><span class="num" id="statMaterialen">—</span><span class="lbl">materiaalgroepen</span></div>
+  </div>
+</header>
+
+<div class="controls-wrap">
+  <div class="controls">
+    <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="searchInput" placeholder="Zoek op titel, materiaal, kavel of nummer…" autocomplete="off">
+      <button class="clear-btn" id="clearBtn">wissen</button>
+    </div>
+    <select id="kavelFilter"><option value="">Alle kavels</option></select>
+    <select id="materiaalFilter"><option value="">Alle materialen</option></select>
+    <select id="plaatsFilter"><option value="">Alle plaatsen</option></select>
+    <select id="sortSelect">
+      <option value="nr">Sorteer: nummer</option>
+      <option value="titel">Sorteer: titel A–Z</option>
+      <option value="kavel">Sorteer: kavel</option>
+      <option value="datering">Sorteer: datering</option>
+    </select>
+  </div>
+  <div class="result-count" id="resultCount"></div>
+</div>
+
+<main>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>
+  Inventaris Herman De Cuyper — beeldhouwwerken.<br>
+  <b style="color:var(--paper)">Foto's koppelen:</b> zet alle jpeg's in de map <code>images/</code>, met bestandsnamen die starten met kavel + inventarisnummer (bv. <code>K2-B12a-X012904.jpg</code>). Maak daarna in diezelfde map een bestand <code>manifest.txt</code> met daarin, één per regel, de naam van elke jpeg — dat genereer je met <code>dir /b &gt; manifest.txt</code> (Windows) of <code>ls &gt; manifest.txt</code> (Mac/Linux) terwijl je in de images-map staat. De site leest dit bestand in en koppelt automatisch alle foto's die bij een werk horen; zijn er meerdere foto's van hetzelfde werk, dan blader je erdoorheen door met de muis over de afbeelding te bewegen.<br>
+  Let op: dit inlezen werkt enkel wanneer de pagina via een webserver bekeken wordt (zoals straks op de echte website) — bij lokaal openen als bestand (<code>file://</code>) kan de browser <code>manifest.txt</code> niet ophalen en verschijnt tijdelijk een placeholder.<br>
+  De kolom "Plaats" wordt later aangevuld met <code>Privé</code>, <code>Publiek</code> of <code>Geschonken aan …</code> (naam van de partij). Het filter hierboven vult zich automatisch aan zodra deze waarden in de data staan.
+</footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script id="data-source" type="application/json">[{"kavel":"K2","nr":"B1","nrsort":1,"titel":"Moeder en kind","materiaal":"gepat. gips","datering":"ca.1965","afmeting":"162x70x70 cm.","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B1-X016758.jpg"]},{"kavel":"K2, K7(steen)","nr":"B2","nrsort":2,"titel":"Jef Schuermans","materiaal":"rode zandsteen en gips","datering":"1945","afmeting":"30x20x22","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2","K7"],"gallery":["images/K2-B2a-X012904.jpg","images/K2-B2a-X012905.jpg","images/K2-B2b-X012906.jpg"]},{"kavel":"K7","nr":"B3","nrsort":3,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"1979","afmeting":"84x30x17","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B3-x008452.jpg"]},{"kavel":"K4","nr":"B4","nrsort":4,"titel":"Familie","materiaal":"rode zandsteen","datering":"1979","afmeting":"42x35x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B4-X013014.jpg"]},{"kavel":"K2","nr":"B5","nrsort":5,"titel":"Moeder en dochter","materiaal":"eikenhout","datering":"ca.1970","afmeting":"54x14x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B5-X012907.jpg"]},{"kavel":"K7","nr":"B6","nrsort":6,"titel":"De dans","materiaal":"gepat. gips","datering":"ca.1954","afmeting":"41x19x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B6-X012975.jpg","images/K7-B6-X012976.jpg","images/K7-B6-X012977.jpg","images/K7-B6-X012978.jpg"]},{"kavel":"K7","nr":"B7","nrsort":7,"titel":"Staande Madonna","materiaal":"witte steen","datering":"ca.1950","afmeting":"34x10x8","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B7-X013023.jpg","images/K7-B7-X013024.jpg"]},{"kavel":"K3","nr":"B8","nrsort":8,"titel":"Paardje rijden","materiaal":"gepat.gips","datering":"ca.1953","afmeting":"45x25x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B8-X012952.jpg","images/K3-B8-X012953.jpg","images/K3-B8-X012954.jpg","images/K3-B8-X012955.jpg"]},{"kavel":"K2, K7 (gips)","nr":"B9","nrsort":9,"titel":"Vruchtbaarheid","materiaal":"brons en gips","datering":"ca.1943","afmeting":"41x13x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2","K7"],"gallery":["images/K2-B9a-X012879_1.jpg","images/K2-B9a-X012879.jpg","images/K2-B9b-X012880.jpg","images/K2-B9b-X012881.jpg"]},{"kavel":"K3","nr":"B10","nrsort":10,"titel":"Zittend naakt","materiaal":"keramiek","datering":"ca.1965","afmeting":"26x12x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B10-X012990.jpg","images/K3-B10-X012991.jpg","images/K3-B10-X012992.jpg","images/K3-B10-X012993.jpg"]},{"kavel":"K4","nr":"B11","nrsort":11,"titel":"Liggend naakt","materiaal":"terracotta","datering":"ca.1968","afmeting":"11x13x38","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B11-X016904.jpg","images/K4-B11-X016905.jpg"]},{"kavel":"K4","nr":"B12","nrsort":12,"titel":"Kop oude moeder","materiaal":"gepat.gips","datering":"1934","afmeting":"40x27x19","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B12-X012949.jpg"]},{"kavel":"K6","nr":"B13","nrsort":13,"titel":"Moederschap","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"65x30x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B13-x008453.jpg","images/K6-B13-x008454.jpg","images/K6-B13-x008455.jpg"]},{"kavel":"K1","nr":"B14","nrsort":14,"titel":"Madonna","materiaal":"gepat.gips","datering":"ca.1939","afmeting":"167x31x30","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B14-x008395.jpg"]},{"kavel":"K1","nr":"B15","nrsort":15,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"1977","afmeting":"92x29x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B15-x008456.jpg","images/K1-B15-x008457.jpg","images/K1-B15-x008458.jpg"]},{"kavel":"K1","nr":"B16","nrsort":16,"titel":"Christus","materiaal":"eikenhout","datering":"ca.1960","afmeting":"227x38x20","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B16-x008389.jpg"]},{"kavel":"K1","nr":"B17","nrsort":17,"titel":"Madonna","materiaal":"arduin","datering":"1938","afmeting":"40x51x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B17-x008438.jpg"]},{"kavel":"K5","nr":"B18","nrsort":18,"titel":"Schuw","materiaal":"arduin","datering":"ca.1940","afmeting":"120x20x12","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B18-x008441.jpg","images/K5-B18-x008442.jpg"]},{"kavel":"K3","nr":"B19","nrsort":19,"titel":"Moeder en kind","materiaal":"arduin","datering":"1938","afmeting":"63x28x18","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B19-x008439.jpg","images/K3-B19-x008440.jpg"]},{"kavel":"K4","nr":"B20","nrsort":20,"titel":"Piëta","materiaal":"eikenhout","datering":"ca.1970","afmeting":"79x26x32","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B20-x008435.jpg"]},{"kavel":"K7","nr":"B21","nrsort":21,"titel":"Familie","materiaal":"eikenhout","datering":"1950","afmeting":"41x25x19","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B21-X012898.jpg","images/K7-B21-X012899.jpg","images/K7-B21-X012900.jpg"]},{"kavel":"K1,K5(brons),K6","nr":"B22","nrsort":22,"titel":"Christuskop","materiaal":"palmhout","datering":"1936","afmeting":"29x11x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K5","K6"],"gallery":["images/K1-B22a-X012945.jpg","images/K1-B22b-X012946.jpg","images/K5-B22a-X012945.jpg","images/K5-B22b-X012946.jpg"]},{"kavel":"K2","nr":"B23","nrsort":23,"titel":"Portret van mijn verloofde","materiaal":"gepat.gips","datering":"ca.1932","afmeting":"62x40x28","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B23-x008437.jpg"]},{"kavel":"K2","nr":"B24","nrsort":24,"titel":"Judaskus","materiaal":"eikenhout","datering":"ca.1972","afmeting":"170x41x22","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B24-x008386.jpg"]},{"kavel":"K3","nr":"B25","nrsort":25,"titel":"Kruisafname","materiaal":"eikenhout","datering":"ca.1967","afmeting":"228x60x46","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B25-x008385.jpg"]},{"kavel":"K4","nr":"B26","nrsort":26,"titel":"Vrouw in 't rond","materiaal":"kerselaar","datering":"ca.1974","afmeting":"178x41x60","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B26-x008391.jpg","images/K4-B26-x008392.jpg"]},{"kavel":"K5","nr":"B27","nrsort":27,"titel":"Moeder en kind","materiaal":"eikenhout","datering":"1983","afmeting":"220x60x60","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B27-x008422.jpg","images/K5-B27-x008423.jpg"]},{"kavel":"K4","nr":"B28","nrsort":28,"titel":"Christoffel","materiaal":"arduin","datering":"ca.1940","afmeting":"143x23x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B28-x008445.jpg","images/K4-B28-x008446.jpg","images/K4-B28-x008447.jpg"]},{"kavel":"K4","nr":"B29","nrsort":29,"titel":"Sint-Franciscus","materiaal":"terracotta","datering":"ca.1964","afmeting":"50x12x33","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B29-X012874.jpg","images/K4-B29-X012875.jpg"]},{"kavel":"K6","nr":"B30","nrsort":30,"titel":"Piëta","materiaal":"gepat.gips","datering":"ca.1941","afmeting":"42x16x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B30-X012979.jpg","images/K6-B30-X012980.jpg"]},{"kavel":"K2","nr":"B31","nrsort":31,"titel":"Verrezen Christus","materiaal":"keramiek","datering":"ca.1966","afmeting":"27x43x13","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B31-X013001.jpg"]},{"kavel":"K5","nr":"B32","nrsort":32,"titel":"O.-L.-Vrouw in verwachting","materiaal":"keramiek","datering":"ca.1963","afmeting":"49x9x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B32-X012984.jpg","images/K5-B32-X012985.jpg","images/K5-B32-X012986.jpg","images/K5-B32-X012987.jpg"]},{"kavel":"K3","nr":"B33","nrsort":33,"titel":"De Zoon geboren uit de Vader","materiaal":"terracotta","datering":"1966","afmeting":"51x12x21","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B33-X012872.jpg","images/K3-B33-X012873.jpg"]},{"kavel":"K4","nr":"B34","nrsort":34,"titel":"Vrouwentorso","materiaal":"witte steen","datering":"ca.1969","afmeting":"63x19x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B34-X013066.jpg","images/K4-B34-X013067.jpg"]},{"kavel":"K2","nr":"B35","nrsort":35,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"1979","afmeting":"45x30x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B35-x008461.jpg","images/K2-B35-x008462.jpg","images/K2-B35-x008463.jpg"]},{"kavel":"K3","nr":"B36","nrsort":36,"titel":"Torso van Jan Neutjens","materiaal":"gepat.gips","datering":"ca.1932","afmeting":"60x57x40","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B36-x008436.jpg"]},{"kavel":"K2","nr":"B37","nrsort":37,"titel":"Staand naakt","materiaal":"gepat. eikenhout","datering":"ca.1968","afmeting":"150x17x15","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B37-x008443.jpg","images/K2-B37-x008444.jpg"]},{"kavel":"K7","nr":"B38","nrsort":38,"titel":"Moeder en kind","materiaal":"gepat. euvillesteen","datering":"ca.1942","afmeting":"27x24x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B38-X012910.jpg"]},{"kavel":"K3","nr":"B39","nrsort":39,"titel":"Manskop","materiaal":"arduin","datering":"ca.1940","afmeting":"31x20x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B39-X012912.jpg"]},{"kavel":"","nr":"B40","nrsort":40,"titel":"Madonna (Walem)","materiaal":"kunststeen","datering":"ca.1956","afmeting":"160x60x45","plaats":"","materiaalGroep":"steen","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K6","nr":"B41","nrsort":41,"titel":"Vrouwentors","materiaal":"gepat.gips","datering":"ca.1975","afmeting":"156x35x29","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B41-x008393.jpg","images/K6-B41-x008394.jpg"]},{"kavel":"K3","nr":"B42","nrsort":42,"titel":"Moederweelde","materiaal":"eikenhout","datering":"1976","afmeting":"89x38x23","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B42-x008403.jpg","images/K3-B42-x008404.jpg"]},{"kavel":"K1","nr":"B43","nrsort":43,"titel":"Ecce Homo","materiaal":"keramiek","datering":"ca.1963","afmeting":"45x11x27","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B43-X012914.jpg","images/K1-B43-X012915.jpg"]},{"kavel":"K6","nr":"B44","nrsort":44,"titel":"Goede Herder","materiaal":"terracotta","datering":"ca.1970","afmeting":"50x8x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B44-X012894.jpg"]},{"kavel":"K1","nr":"B45","nrsort":45,"titel":"Eva","materiaal":"gepat.gips","datering":"ca.1955","afmeting":"53x18x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B45-X012966.jpg","images/K1-B45-X012967.jpg","images/K1-B45-X012968.jpg","images/K1-B45-X012969.jpg","images/K1-B45-X012970.jpg"]},{"kavel":"K4","nr":"B46","nrsort":46,"titel":"Moederschap","materiaal":"gepat.gips","datering":"ca.1940","afmeting":"31x19x15","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B46-X012988.jpg","images/K4-B46-X012989.jpg"]},{"kavel":"K1","nr":"B47","nrsort":47,"titel":"Orpheus","materiaal":"keramiek","datering":"ca.1966","afmeting":"55x24x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B47-X012909.jpg"]},{"kavel":"K4","nr":"B48","nrsort":48,"titel":"Christoffel","materiaal":"keramiek","datering":"ca.1969","afmeting":"54x13x8","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B48-X012962.jpg"]},{"kavel":"K3","nr":"B49","nrsort":49,"titel":"Madonna","materiaal":"gepat.gips","datering":"ca.1938","afmeting":"170x47x36","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B49-X016770.jpg"]},{"kavel":"K5","nr":"B50","nrsort":50,"titel":"Voedster","materiaal":"euvillesteen","datering":"1942","afmeting":"41x20x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B50-X012933.jpg","images/K5-B50-X012934.jpg","images/K5-B50-X012935.jpg"]},{"kavel":"K4","nr":"B51","nrsort":51,"titel":"Moeder en kind","materiaal":"arduin","datering":"1941","afmeting":"52x25x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B51-X012926.jpg","images/K4-B51-X012927.jpg","images/K4-B51-X012928.jpg"]},{"kavel":"K6","nr":"B52","nrsort":52,"titel":"Zittende familie","materiaal":"eikenhout","datering":"ca.1975","afmeting":"38x45x20","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B52-X012882_1.jpg","images/K6-B52-X012882.jpg","images/K6-B52-X012883_1.jpg","images/K6-B52-X012883.jpg"]},{"kavel":"K7","nr":"B53","nrsort":53,"titel":"Decoratieve kop","materiaal":"arduin","datering":"ca.1939","afmeting":"41x24x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B53-X012896.jpg","images/K7-B53-X012897.jpg"]},{"kavel":"K1","nr":"B54","nrsort":54,"titel":"Moeder en kind","materiaal":"arduin","datering":"ca.1940","afmeting":"39x30x26","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B54-X012929.jpg","images/K1-B54-X012930.jpg"]},{"kavel":"K4","nr":"B55","nrsort":55,"titel":"O.-L.-Vrouw Middelares","materiaal":"gepat.gips","datering":"1938","afmeting":"180x40x30","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B55-X016766.jpg"]},{"kavel":"K3","nr":"B56","nrsort":56,"titel":"De Mensenvisser","materiaal":"bontzandsteen","datering":"ca.1940","afmeting":"70x23x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B56-X012937.jpg","images/K3-B56-X012938.jpg"]},{"kavel":"K6","nr":"B57","nrsort":57,"titel":"O.-L.-Vrouw Middelares","materiaal":"euvillesteen","datering":"ca.1938","afmeting":"103x24x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B57-x008405.jpg"]},{"kavel":"K3","nr":"B58 A","nrsort":58,"titel":"Ontwerp oorlogsmonument van Strombeek-Bever","materiaal":"gepat.gips","datering":"ca.1948","afmeting":"32x70x3","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B58a-X013068.jpg"]},{"kavel":"K3","nr":"B58 B","nrsort":58,"titel":"Ontwerp oorlogsmonument van Strombeek-Bever","materiaal":"gepat.gips","datering":"ca.1948","afmeting":"32x70x3","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B58b-X013069.jpg"]},{"kavel":"K5","nr":"B59","nrsort":59,"titel":"Moeder en kind","materiaal":"keramiek","datering":"ca.1966","afmeting":"17x45x23","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B59-X012997.jpg","images/K5-B59-X012998.jpg"]},{"kavel":"K3","nr":"B60","nrsort":60,"titel":"Christustorso","materiaal":"eikenhout","datering":"ca.1971","afmeting":"53x14x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B60-2007-08-19 22.38.53.jpg"]},{"kavel":"K2","nr":"B61","nrsort":61,"titel":"Ouderschap","materiaal":"keramiek","datering":"ca.1965","afmeting":"31x11x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B61-X012994.jpg","images/K2-B61-X012995.jpg"]},{"kavel":"K4","nr":"B62","nrsort":62,"titel":"Staand naakt","materiaal":"eikenhout","datering":"ca.1970","afmeting":"62x8x7","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B62-X012973.jpg","images/K4-B62-X012974.jpg"]},{"kavel":"K6","nr":"B63","nrsort":63,"titel":"Staand naakt","materiaal":"keramiek","datering":"ca.1967","afmeting":"56x7x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B63-X012960.jpg","images/K6-B63-X012961.jpg"]},{"kavel":"K5","nr":"B64","nrsort":64,"titel":"Verwachting","materiaal":"witte steen","datering":"ca.1940","afmeting":"55x10x9","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B64-X013025.jpg","images/K5-B64-X013026.jpg"]},{"kavel":"K5","nr":"B65","nrsort":65,"titel":"Na het bad","materiaal":"eikenhout","datering":"ca.1969","afmeting":"59x7x7","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B65-X012971.jpg","images/K5-B65-X012972.jpg"]},{"kavel":"K1","nr":"B66","nrsort":66,"titel":"Paring","materiaal":"keramiek","datering":"ca.1968","afmeting":"14x53x24","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B66-X012999.jpg"]},{"kavel":"K3","nr":"B67","nrsort":67,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1972","afmeting":"39x27x25","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B67-x008406.jpg","images/K3-B67-x008407.jpg"]},{"kavel":"K6","nr":"B68","nrsort":68,"titel":"Rechtopstaande familie","materiaal":"eikenhout","datering":"ca.1970","afmeting":"235x48x56","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B68-X016760.jpg","images/K6-B68-X016761.jpg"]},{"kavel":"K1","nr":"B69","nrsort":69,"titel":"Zwangerschap","materiaal":"gepat.gips","datering":"ca.1960","afmeting":"195x70x65","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B69-X016767.jpg","images/K1-B69-X016768.jpg"]},{"kavel":"K4","nr":"B70","nrsort":70,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1975","afmeting":"43x24x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B70-X013032.jpg","images/K4-B70-X013033.jpg"]},{"kavel":"K1","nr":"B71","nrsort":71,"titel":"Kruisiging (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"60x42x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B71-X013054.jpg"]},{"kavel":"K1","nr":"B72","nrsort":72,"titel":"Kruisdraging (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"52x30x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B72-X013055.jpg"]},{"kavel":"K1","nr":"B73","nrsort":73,"titel":"Kruisdraging (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"50x25x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B73-X013007.jpg"]},{"kavel":"K5","nr":"B74","nrsort":74,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1974","afmeting":"50x22x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B74-P7030025.JPG","images/K5-B74-X013046.jpg","images/K5-B74-X013047.jpg"]},{"kavel":"K1","nr":"B75","nrsort":75,"titel":"Doornenkroning (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"40x11x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B75-X013057.jpg"]},{"kavel":"K1","nr":"B76","nrsort":76,"titel":"Geseling (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"49x12x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B76-X013058.jpg"]},{"kavel":"K1","nr":"B77","nrsort":77,"titel":"Geseling (schets)","materiaal":"gepat.gips","datering":"1951-1952","afmeting":"46x10x9","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B77-X013006.jpg"]},{"kavel":"K1","nr":"B78","nrsort":78,"titel":"Jezus in de Hof van Olijven (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"39x8x14","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B78-X013056.jpg"]},{"kavel":"K7","nr":"B79","nrsort":79,"titel":"Familie","materiaal":"keramiek","datering":"ca.1969","afmeting":"49x15x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B79-X012884.jpg","images/K7-B79-X012885.jpg"]},{"kavel":"K1","nr":"B80","nrsort":80,"titel":"De kroning van Maria (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"50x9x18","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B80-X013050.jpg"]},{"kavel":"K1","nr":"B81","nrsort":81,"titel":"De hemelvaart van Maria (schets)","materiaal":"gepat.gips","datering":"1951-1952","afmeting":"46x11x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B81-X013003.jpg"]},{"kavel":"K1","nr":"B82","nrsort":82,"titel":"De hemelvaart van Maria (schets)","materiaal":"gepat.gips","datering":"1951-1952","afmeting":"48x10x9","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B82-X013004.jpg"]},{"kavel":"K3","nr":"B83","nrsort":83,"titel":"O.-L.-Vrouw (schets)","materiaal":"gips","datering":"ca.1956","afmeting":"53x12x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B83-X013059.jpg"]},{"kavel":"K1","nr":"B84","nrsort":84,"titel":"De nederdaling v.d H. Geest (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"46x20x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B84-X013053.jpg"]},{"kavel":"K1","nr":"B85","nrsort":85,"titel":"De hemelvaart van Jezus (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"55x11x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B85-X013051.jpg"]},{"kavel":"K1","nr":"B86","nrsort":86,"titel":"De Verrijzenis (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"47x12x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B86-X013052.jpg"]},{"kavel":"K1","nr":"B87","nrsort":87,"titel":"De Verrijzenis (schets)","materiaal":"gepat.gips","datering":"1951-1952","afmeting":"48x12x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B87-X013038.jpg"]},{"kavel":"K6","nr":"B88","nrsort":88,"titel":"Manskop","materiaal":"marmer","datering":"1976","afmeting":"32x20x19","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B88-X013048.jpg"]},{"kavel":"K1","nr":"B89","nrsort":89,"titel":"Terugvinding van Jezus (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"41x21x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B89-X013063.jpg"]},{"kavel":"K1","nr":"B90","nrsort":90,"titel":"De opdracht in de tempel (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"47x24x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B90-X013064.jpg"]},{"kavel":"K1","nr":"B91","nrsort":91,"titel":"De geboorte van Jezus (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"38x21x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B91-X013062.jpg"]},{"kavel":"K1","nr":"B92","nrsort":92,"titel":"Maria bezoekt Elisabeth (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"45x18x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B92-X013061.jpg"]},{"kavel":"K1","nr":"B93","nrsort":93,"titel":"De Boodschap (schets)","materiaal":"gips","datering":"1951-1952","afmeting":"50x15x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B93-X013060.jpg"]},{"kavel":"K2","nr":"B94","nrsort":94,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1946","afmeting":"58x18x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B94-X013034.jpg","images/K2-B94-X013035.jpg","images/K2-B94-X013036.jpg","images/K2-B94-X013037.jpg"]},{"kavel":"K6","nr":"B95","nrsort":95,"titel":"Decoratieve kop","materiaal":"arduin","datering":"ca.1947","afmeting":"42x20x33","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B95-X013015.jpg","images/K6-B95-X013016.jpg","images/K6-B95-X013017.jpg"]},{"kavel":"K2","nr":"B96","nrsort":96,"titel":"H. Godelieve (schets)","materiaal":"gepat.gips","datering":"ca.1957","afmeting":"46x10x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B96-X012888.jpg","images/K2-B96-X012889_1.jpg","images/K2-B96-X012889.jpg"]},{"kavel":"K1","nr":"B97","nrsort":97,"titel":"Johannes de Doper","materiaal":"terracotta","datering":"ca.1968","afmeting":"52x14x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B97-X012890.jpg","images/K1-B97-X012891.jpg"]},{"kavel":"K5","nr":"B98","nrsort":98,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1976","afmeting":"42x24x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B98-x008473.jpg","images/K5-B98-x008474.jpg","images/K5-B98-x008475.jpg"]},{"kavel":"K3","nr":"B99","nrsort":99,"titel":"Madonna","materiaal":"gepat.gips","datering":"ca.1953","afmeting":"56x14x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B99-X012892.jpg"]},{"kavel":"K4","nr":"B100","nrsort":100,"titel":"Madonna","materiaal":"gepat.gips","datering":"ca.1952","afmeting":"55x11x11","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B100-X012893.jpg"]},{"kavel":"K4","nr":"B101","nrsort":101,"titel":"Barmhartige Samaritaan","materiaal":"Brouvillersteen","datering":"ca.1936","afmeting":"47x14x27","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B101-x008476.jpg","images/K4-B101-x008477.jpg","images/K4-B101-x008478.jpg"]},{"kavel":"K2","nr":"B102","nrsort":102,"titel":"Jezus in de Hof van Olijven","materiaal":"terracotta","datering":"ca.1936","afmeting":"40x9x14","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B102-X012950.jpg","images/K2-B102-X012951.jpg"]},{"kavel":"K6","nr":"B103","nrsort":103,"titel":"Verwachting","materiaal":"keramiek","datering":"ca.1969","afmeting":"57x10x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B103-X012886_1.jpg","images/K6-B103-X012886.jpg","images/K6-B103-X012887_1.jpg","images/K6-B103-X012887.jpg"]},{"kavel":"K3","nr":"B104","nrsort":104,"titel":"Bloemenmeisje","materiaal":"keramiek","datering":"ca.1969","afmeting":"54x8x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B104-X016801.jpg"]},{"kavel":"K6","nr":"B105","nrsort":105,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"1950","afmeting":"38x26x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B105-x008479.jpg","images/K6-B105-x008480.jpg","images/K6-B105-x008481.jpg","images/K6-B105-x008482.jpg"]},{"kavel":"K5","nr":"B106","nrsort":106,"titel":"Vruchtbaarheid","materiaal":"gepat.gips","datering":"ca.1943","afmeting":"205x70x60","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B106-x008383.jpg"]},{"kavel":"K1","nr":"B107","nrsort":107,"titel":"Madonna","materiaal":"eikenhout","datering":"1982","afmeting":"80x20x20","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B107-X012908.jpg"]},{"kavel":"K1","nr":"B108","nrsort":108,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1976","afmeting":"30x33x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B108-x008483.jpg","images/K1-B108-x008484.jpg"]},{"kavel":"K2","nr":"B109","nrsort":109,"titel":"Noli me tangere","materiaal":"euvillesteen","datering":"ca.1972","afmeting":"66x32x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B109-x008459.jpg"]},{"kavel":"K1","nr":"B110","nrsort":110,"titel":"Liggende moeder en kind","materiaal":"eikenhout","datering":"ca.1967","afmeting":"50x175x50","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B110-2007-08-25 03.37.03.jpg","images/K1-B110-2007-08-25 22.58.29.jpg"]},{"kavel":"K2","nr":"B111","nrsort":111,"titel":"Ontvoogding","materiaal":"gepat.gips","datering":"1931","afmeting":"169x68x41","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B111-x008384.jpg"]},{"kavel":"K3","nr":"B112","nrsort":112,"titel":"Genadestoel","materiaal":"terracotta","datering":"1977","afmeting":"55x17x38","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B112-X012931.jpg","images/K3-B112-X012932.jpg"]},{"kavel":"K6","nr":"B113","nrsort":113,"titel":"Moederschap","materiaal":"witte steen","datering":"ca.1976","afmeting":"41x32x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B113-x008485.jpg"]},{"kavel":"K4","nr":"B114","nrsort":114,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1974","afmeting":"73x20x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":[]},{"kavel":"K5","nr":"B115","nrsort":115,"titel":"Flora","materiaal":"euvillesteen","datering":"ca.1947","afmeting":"67x23x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B115-x008460.jpg"]},{"kavel":"K7","nr":"B116","nrsort":116,"titel":"Staand naakt","materiaal":"gepat.gips","datering":"ca.1949","afmeting":"118x30x58","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B116-X016759.jpg"]},{"kavel":"K5","nr":"B117","nrsort":117,"titel":"De voedster","materiaal":"gepat.gips","datering":"ca.1949","afmeting":"70x25x45","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B117-x008433.jpg","images/K5-B117-x008434.jpg"]},{"kavel":"K6","nr":"B118","nrsort":118,"titel":"Musicerende engel","materiaal":"terracotta en glas","datering":"ca.1967","afmeting":"64x40x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B118-X013019.jpg"]},{"kavel":"K3","nr":"B119","nrsort":119,"titel":"Charlientje","materiaal":"gepat.gips","datering":"1932","afmeting":"122x56x28","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B119-x008427.jpg","images/K3-B119-x008428.jpg","images/K3-B119-x008429.jpg","images/K3-B119-x008430.jpg","images/K3-B119-x008431.jpg","images/K3-B119-x008432.jpg"]},{"kavel":"K6","nr":"B120","nrsort":120,"titel":"Piëta","materiaal":"arduin","datering":"ca.1946","afmeting":"37x35x18","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B120-X012902.jpg"]},{"kavel":"K2","nr":"B121","nrsort":121,"titel":"Piëta","materiaal":"arduin","datering":"ca.1946","afmeting":"40x32x11","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B121-X012901.jpg"]},{"kavel":"K2","nr":"B122","nrsort":122,"titel":"Twee zussen","materiaal":"terracotta","datering":"ca.1969","afmeting":"52x23x13","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B122-X012942.jpg","images/K2-B122-X012943.jpg","images/K2-B122-X012944.jpg"]},{"kavel":"K7","nr":"B123","nrsort":123,"titel":"Tijl Uylenspiegel","materiaal":"euvillesteen","datering":"ca.1942","afmeting":"62x31x27","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":[]},{"kavel":"K4","nr":"B124","nrsort":124,"titel":"Lezende Johanna De Win","materiaal":"gepat.gips","datering":"1932","afmeting":"169x43x55","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B124-x008387.jpg","images/K4-B124-x008388.jpg"]},{"kavel":"K2","nr":"B125","nrsort":125,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"30x21x11","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B125-X013027.jpg","images/K2-B125-X013028.jpg","images/K2-B125-X013029.jpg"]},{"kavel":"K7","nr":"B126","nrsort":126,"titel":"Eva","materiaal":"gepat.steen","datering":"ca.1954","afmeting":"40x7x8","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B126-X012956.jpg","images/K7-B126-X012957.jpg","images/K7-B126-X012958.jpg","images/K7-B126-X012959.jpg"]},{"kavel":"K4","nr":"B127","nrsort":127,"titel":"Overgave","materiaal":"grijze zandsteen","datering":"1952","afmeting":"75x28x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B127-x008397.jpg"]},{"kavel":"K3","nr":"B128","nrsort":128,"titel":"Jeugd","materiaal":"eikenhout","datering":"ca.1982","afmeting":"190x37x40","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B128-x008390.jpg"]},{"kavel":"K5","nr":"B129","nrsort":129,"titel":"Moederweelde (zitbank)","materiaal":"kastanjelaar","datering":"1981","afmeting":"36x50x216","plaats":"","materiaalGroep":"overig","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B129-2008-06-03 17.38.34.jpg"]},{"kavel":"K3","nr":"B130","nrsort":130,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"77x28x19","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B130-x008396.jpg"]},{"kavel":"K7","nr":"B131","nrsort":131,"titel":"Vrouwentorso","materiaal":"euvillesteen","datering":"ca.1978","afmeting":"64x21x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B131-x008398.jpg"]},{"kavel":"K7","nr":"B132","nrsort":132,"titel":"Eva","materiaal":"eikenhout","datering":"ca.1969","afmeting":"232x45x40","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B132-x008420.jpg","images/K7-B132-x008421.jpg"]},{"kavel":"K7","nr":"B133","nrsort":133,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1975","afmeting":"57x18x17","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B133-x008469.jpg","images/K7-B133-x008470.jpg","images/K7-B133-x008471.jpg","images/K7-B133-x008472.jpg"]},{"kavel":"K7","nr":"B134","nrsort":134,"titel":"Sint-Job","materiaal":"gepat.gips","datering":"1930","afmeting":"107x45x80","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B134-X016765.jpg"]},{"kavel":"K3","nr":"B135","nrsort":135,"titel":"Decoratieve kop","materiaal":"eikenhout","datering":"ca.1959","afmeting":"26x15x21","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B135-X012981.jpg","images/K3-B135-X012982.jpg","images/K3-B135-X012983.jpg"]},{"kavel":"K3","nr":"B136","nrsort":136,"titel":"Georgette","materiaal":"gepat.gips","datering":"1934","afmeting":"48x29x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B136-X013011.jpg","images/K3-B136-X013012.jpg","images/K3-B136-X013013.jpg"]},{"kavel":"K6","nr":"B137","nrsort":137,"titel":"Vrouwentors","materiaal":"euvillesteen","datering":"1979","afmeting":"102x28x24","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B137-x008401.jpg","images/K6-B137-x008402.jpg"]},{"kavel":"K6","nr":"B138","nrsort":138,"titel":"Huwelijk","materiaal":"gepat. kerselaar","datering":"ca.1974","afmeting":"225x30x33","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B138-x008417.jpg","images/K6-B138-x008418.jpg","images/K6-B138-x008419.jpg"]},{"kavel":"K2","nr":"B139","nrsort":139,"titel":"Vlucht naar Egypte","materiaal":"ijzerzandsteen","datering":"ca.1938","afmeting":"44x34x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B139-X012996.jpg"]},{"kavel":"K1 of K4","nr":"B140","nrsort":140,"titel":"Baring","materiaal":"keramiek","datering":"ca.1967","afmeting":"17x41x20","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K4"],"gallery":["images/K1-B140-X013000.jpg","images/K4-B140-X013000.jpg"]},{"kavel":"K4","nr":"B141","nrsort":141,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1973","afmeting":"31x26x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B141-X013030.jpg","images/K4-B141-X013031.jpg"]},{"kavel":"K4","nr":"B142","nrsort":142,"titel":"Christuskop","materiaal":"keramiek","datering":"ca.1963","afmeting":"26x16x21","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B142-X013008.jpg","images/K4-B142-X013009.jpg","images/K4-B142-X013010.jpg"]},{"kavel":"K1","nr":"B143","nrsort":143,"titel":"Vruchtbaarheid","materiaal":"gepat. kastanjehout","datering":"1981","afmeting":"87x18x17","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B143-x008412.jpg","images/K1-B143-x008413.jpg"]},{"kavel":"K6","nr":"B144","nrsort":144,"titel":"In de zon","materiaal":"gepat.gips","datering":"ca.1960","afmeting":"79x18x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B144-x008408.jpg","images/K6-B144-x008409.jpg","images/K6-B144-x008410.jpg","images/K6-B144-x008411.jpg"]},{"kavel":"K4","nr":"B145","nrsort":145,"titel":"Torso van een meisje","materiaal":"gepat. dennenhout","datering":"ca.1970","afmeting":"205x24x35","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B145-X016764.jpg"]},{"kavel":"K7","nr":"B146","nrsort":146,"titel":"Drie-eenheid","materiaal":"Carraramarmer","datering":"ca.1977","afmeting":"28x27x11","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B146-X013041.jpg","images/K7-B146-X013042.jpg","images/K7-B146-X013043.jpg"]},{"kavel":"K6","nr":"B147","nrsort":147,"titel":"Straatmuzikanten","materiaal":"eikenhout","datering":"1936","afmeting":"59x18x13","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B147-x008415.jpg"]},{"kavel":"K7","nr":"B148","nrsort":148,"titel":"Piëta","materiaal":"terracotta","datering":"1977","afmeting":"56x27x45","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B148-X012936.jpg"]},{"kavel":"K1","nr":"B149","nrsort":149,"titel":"Tante Fina","materiaal":"gepat.gips","datering":"ca.1930","afmeting":"112x56x35","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B149-X016769.jpg"]},{"kavel":"K2","nr":"B150","nrsort":150,"titel":"Paring","materiaal":"gepat. eikenhout","datering":"ca.1972","afmeting":"35x44x200","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B150-X016762.jpg","images/K2-B150-X016763.jpg"]},{"kavel":"K5","nr":"B151","nrsort":151,"titel":"Portretbuste van mijn moeder","materiaal":"terracotta","datering":"1929","afmeting":"40x26x18","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B151-X016858.jpg","images/K5-B151-X016859.jpg"]},{"kavel":"K2","nr":"B152","nrsort":152,"titel":"Madonna van de Vrede","materiaal":"appelaar","datering":"1977","afmeting":"126x21x13","plaats":"","materiaalGroep":"overig","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B152-X016910.jpg"]},{"kavel":"K3","nr":"B153","nrsort":153,"titel":"Portretbuste van mijn grootmoeder","materiaal":"terracotta","datering":"1929","afmeting":"36x23x18","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B153-X016882.jpg","images/K3-B153-X016883.jpg"]},{"kavel":"K3","nr":"B154","nrsort":154,"titel":"Jong meisje","materiaal":"kerselaar","datering":"1937","afmeting":"70x12x11","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B154-X016855.jpg","images/K3-B154-X016856.jpg"]},{"kavel":"K2","nr":"B155","nrsort":155,"titel":"Christuskop","materiaal":"euvillesteen","datering":"ca.1980","afmeting":"33x11x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B155-X013072.jpg"]},{"kavel":"K6","nr":"B156","nrsort":156,"titel":"Portret van mijn vrouw","materiaal":"terracotta","datering":"ca.1975","afmeting":"31x20x20","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B156-X016881.jpg"]},{"kavel":"K7","nr":"B157","nrsort":157,"titel":"De vlucht naar Egypte","materiaal":"keramiek bas-reliëf","datering":"1962","afmeting":"19x18","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B157-2008-06-05 09.37.56.jpg"]},{"kavel":"K5","nr":"B158","nrsort":158,"titel":"O.-L.-Vrouw in verwachting","materiaal":"gepat.gips","datering":"ca.1955","afmeting":"55x9x10","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B158-X016890.jpg"]},{"kavel":"K1","nr":"B159","nrsort":159,"titel":"O.-L.-Vrouw in verwachting","materiaal":"palmhout","datering":"ca.1965","afmeting":"28x4,50x2,50","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B159-X016896.jpg"]},{"kavel":"K7","nr":"B160","nrsort":160,"titel":"Christusmasker","materiaal":"keramiek","datering":"ca.1966","afmeting":"26x17x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B160-X016887.jpg"]},{"kavel":"K5","nr":"B161","nrsort":161,"titel":"Sint-Anna","materiaal":"gepat.gips","datering":"ca.1955","afmeting":"50x12x13","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B161-X016802.jpg"]},{"kavel":"K5","nr":"B162","nrsort":162,"titel":"Veronica","materiaal":"keramiek","datering":"ca.1967","afmeting":"49x23x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B162-X016800.jpg"]},{"kavel":"K2","nr":"B163","nrsort":163,"titel":"H. Clara","materiaal":"terracotta","datering":"1982","afmeting":"48x11x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B163-X016897.jpg"]},{"kavel":"K2","nr":"B164","nrsort":164,"titel":"H. Gudula","materiaal":"gepat.gips","datering":"ca.1950","afmeting":"49x17x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B164-X016814.jpg","images/K2-B164-X016815.jpg"]},{"kavel":"K1","nr":"B165","nrsort":165,"titel":"Gekruisigde Christus","materiaal":"palmhout","datering":"ca.1954","afmeting":"40x34x3","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B165-X016913.jpg"]},{"kavel":"K1","nr":"B166","nrsort":166,"titel":"H. Familie (tondo)","materiaal":"eiken bas-relief","datering":"ca.1953","afmeting":"50(diameter)","plaats":"","materiaalGroep":"hout","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B166-2008-06-05 14.34.56.jpg"]},{"kavel":"K5","nr":"B167","nrsort":167,"titel":"Sint-Lutgardis","materiaal":"gepolychr. hout","datering":"1930","afmeting":"85x11x11","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B167-x008414.jpg"]},{"kavel":"K3","nr":"B168","nrsort":168,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1953","afmeting":"37x10x9","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B168-X013108.jpg","images/K3-B168-X013109.jpg"]},{"kavel":"K6","nr":"B169","nrsort":169,"titel":"Kerstkribbe","materiaal":"gepolychr. Euvillesteen","datering":"ca.1955","afmeting":"39x20x14","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B169-X016884.jpg","images/K6-B169-X016885.jpg"]},{"kavel":"K4,K5(gips)","nr":"B170","nrsort":170,"titel":"Staande Madonna","materiaal":"brons en gips","datering":"ca.1954","afmeting":"21x4x4","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4","K5"],"gallery":["images/K4-B170-X016895.jpg","images/K5-B170-X016895.jpg"]},{"kavel":"K2","nr":"B171","nrsort":171,"titel":"Christoffel","materiaal":"palmhout","datering":"ca.1960","afmeting":"35,50x5x4","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B171-X016892.jpg"]},{"kavel":"K7","nr":"B172","nrsort":172,"titel":"Zitbank","materiaal":"eikenhout","datering":"ca.1960","afmeting":"52x190x45","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B172-2008-06-05 17.17.57.jpg"]},{"kavel":"K7","nr":"B173","nrsort":173,"titel":"Chris","materiaal":"kunststeen","datering":"ca.1958","afmeting":"28x20x21","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B173-X013105.jpg","images/K7-B173-X013106.jpg"]},{"kavel":"K1,K2 (gips)","nr":"B174","nrsort":174,"titel":"H. Lutgardis","materiaal":"brons en gips","datering":"ca.1956","afmeting":"28x8x5,50","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K2"],"gallery":["images/K1-B174-X016894.jpg","images/K2-B174-X016894.jpg"]},{"kavel":"K4,K5","nr":"B175","nrsort":175,"titel":"Madonna van de Vrede","materiaal":"keramiek en terracotta","datering":"ca.1965","afmeting":"47x9x8","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4","K5"],"gallery":["images/K4-B175-X012965.jpg","images/K4-K5-B175-2008-06-05 20.13.33 .jpg"]},{"kavel":"K5","nr":"B176","nrsort":176,"titel":"Moederschap","materiaal":"keramiek","datering":"ca.1968","afmeting":"45x21x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B176-X016888.jpg"]},{"kavel":"K6","nr":"B177","nrsort":177,"titel":"Zwangerschap","materiaal":"kerselaar","datering":"ca.1937","afmeting":"41x8x7","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B177-X016891.jpg"]},{"kavel":"K7","nr":"B178","nrsort":178,"titel":"Schotel","materiaal":"keramiek","datering":"ca.1970","afmeting":"37,50 diameter","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B178-2008-06-05 21.08.57.jpg"]},{"kavel":"K7","nr":"B179","nrsort":179,"titel":"Goede Herder","materiaal":"terracotta","datering":"ca.1970","afmeting":"46x8x5","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B179-X016889.jpg"]},{"kavel":"K3","nr":"B180","nrsort":180,"titel":"De Schepping","materiaal":"euvillesteen","datering":"ca.1958","afmeting":"81x10x12","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B180-X013116.jpg","images/K3-B180-X013117.jpg","images/K3-B180-X013118.jpg","images/K3-B180-X013119.jpg"]},{"kavel":"K1","nr":"B181","nrsort":181,"titel":"H. Hart","materiaal":"marmer","datering":"1937","afmeting":"49x10x10","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B181-X013115.jpg"]},{"kavel":"K3","nr":"B182","nrsort":182,"titel":"O.-L.-Vrouw in verwachting","materiaal":"Carraramarmer","datering":"1937","afmeting":"50x10x10","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B182-X013112.jpg","images/K3-B182-X013113.jpg","images/K3-B182-X013114.jpg"]},{"kavel":"K2","nr":"B183","nrsort":183,"titel":"Christustorso","materiaal":"eikenhout","datering":"ca.1980","afmeting":"110x22x15","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B183-2008-06-06 11.41.38.jpg"]},{"kavel":"K3","nr":"B184","nrsort":184,"titel":"Sint-Jozef (schets)","materiaal":"terracotta","datering":"1981","afmeting":"54x11x15","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B184-X016807.jpg"]},{"kavel":"K2","nr":"B185","nrsort":185,"titel":"Sint-Jozef(schets)","materiaal":"terracotta","datering":"1981","afmeting":"44x8x6","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B185-X016803.jpg"]},{"kavel":"K6","nr":"B186","nrsort":186,"titel":"Sint-Jozef (schets)","materiaal":"terracotta","datering":"1981","afmeting":"44x9x7","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B186-X016805.jpg"]},{"kavel":"K4","nr":"B187","nrsort":187,"titel":"Sint-Jozef (schets)","materiaal":"terracotta","datering":"1981","afmeting":"40x8x6","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B187-X016804.jpg"]},{"kavel":"K1","nr":"B188","nrsort":188,"titel":"Sint-Jozef (schets)","materiaal":"terracotta","datering":"1981","afmeting":"45x10x9","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B188-X016806.jpg"]},{"kavel":"K7","nr":"B189","nrsort":189,"titel":"Moederschap","materiaal":"arduin","datering":"1983","afmeting":"110x34x21","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B189-x008416.jpg","images/K7-B189-x008426.jpg"]},{"kavel":"K5","nr":"B190","nrsort":190,"titel":"Zittende familie","materiaal":"arduin","datering":"ca.1985","afmeting":"116x150x40","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B190-x008425.jpg"]},{"kavel":"K4","nr":"B191","nrsort":191,"titel":"De vlucht naar Egypte","materiaal":"euvillesteen","datering":"ca.1960","afmeting":"33x27x10","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B191-X013090.jpg"]},{"kavel":"K1","nr":"B192","nrsort":192,"titel":"Piëta","materiaal":"euvillesteen","datering":"1970","afmeting":"54x28x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B192-X013097.jpg"]},{"kavel":"K2","nr":"B193","nrsort":193,"titel":"Meisjestorso","materiaal":"terracotta","datering":"ca.1968","afmeting":"21x5x4","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B193-2008-06-06 16.53.16.jpg"]},{"kavel":"K1","nr":"B194","nrsort":194,"titel":"Zonnebaden","materiaal":"gepat.gips","datering":"ca.1959","afmeting":"60x20x39","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B194-X016835.jpg","images/K1-B194-X016836.jpg"]},{"kavel":"K1","nr":"B195","nrsort":195,"titel":"Buste van Serigiers","materiaal":"terracotta","datering":"1931","afmeting":"49x34x28","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B195-X012918.jpg","images/K1-B195-X012919.jpg","images/K1-B195-X012920.jpg"]},{"kavel":"K6","nr":"B196","nrsort":196,"titel":"Fonteinmotief","materiaal":"keramiek","datering":"ca.1965","afmeting":"65x23x38","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B196-PA120014.JPG"]},{"kavel":"K5","nr":"B197","nrsort":197,"titel":"De muziek (paneel)","materiaal":"gepolychr.eik","datering":"ca.1955","afmeting":"48x37","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B197-2008-06-06 21.43.31.jpg"]},{"kavel":"K3","nr":"B198","nrsort":198,"titel":"Het toneel (paneel)","materiaal":"gepolychr.eik","datering":"ca.1955","afmeting":"48x37","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B198-2008-06-06 22.06.02.jpg"]},{"kavel":"K1","nr":"B199","nrsort":199,"titel":"Lucienne Van De Venne","materiaal":"gepat.gips","datering":"1934","afmeting":"38x21x17","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B199-X016771.jpg","images/K1-B199-X016772.jpg"]},{"kavel":"K4","nr":"B200","nrsort":200,"titel":"Ornamentfries met putti","materiaal":"eikenhout","datering":"1923","afmeting":"21x141x1,50","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B200-2008-06-07 09.42.10.jpg"]},{"kavel":"K6","nr":"B201","nrsort":201,"titel":"Decoratieve meisjeskop","materiaal":"euvillesteen","datering":"ca.1962","afmeting":"28x15x28","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B201-X013110.jpg","images/K6-B201-X013111.jpg"]},{"kavel":"K2, K3","nr":"B202","nrsort":202,"titel":"Madonna (2x)","materiaal":"gepat.gips","datering":"ca.1955","afmeting":"53x10x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2","K3"],"gallery":["images/K2-B202-X016851.jpg","images/K3-B202 (x2)2008-06-07 08.57.16.jpg"]},{"kavel":"K3","nr":"B203","nrsort":203,"titel":"De asceet","materiaal":"grijze zandsteen","datering":"ca.1935","afmeting":"20x16x17","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B203-X013077.jpg","images/K3-B203-X013078.jpg"]},{"kavel":"K3","nr":"B204","nrsort":204,"titel":"Decoratief kinderhoofd","materiaal":"arduin","datering":"1979","afmeting":"30x14x18","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B204-X016820.jpg"]},{"kavel":"K7","nr":"B205","nrsort":205,"titel":"Mevrouw Van De Kapelle","materiaal":"terracotta","datering":"ca.1933","afmeting":"26x20x22","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B205-X016795.jpg"]},{"kavel":"K2","nr":"B206","nrsort":206,"titel":"Manskop","materiaal":"terracotta","datering":"ca.1933","afmeting":"27x20x23","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B206-X016796.jpg"]},{"kavel":"K2, K6(terracotta)","nr":"B207","nrsort":207,"titel":"Jan Hammenecker","materiaal":"terracotta en gips","datering":"ca.1930","afmeting":"28x17x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2","K6"],"gallery":["images/K6-B207-X012939.jpg"]},{"kavel":"K5","nr":"B208","nrsort":208,"titel":"Wiske Huysmans","materiaal":"gepat.gips","datering":"1934","afmeting":"38x22x17","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B208-X016823.jpg","images/K5-B208-X016824.jpg"]},{"kavel":"K4","nr":"B209","nrsort":209,"titel":"Lucienne Van De Venne","materiaal":"gepat.gips","datering":"1934","afmeting":"39x30x21","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B209-2008-06-08 13.23.58.jpg"]},{"kavel":"K5","nr":"B210","nrsort":210,"titel":"Hubert Wolfs","materiaal":"gepat.gips","datering":"ca.1935","afmeting":"35x24x30","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B210-X012916.jpg","images/K5-B210-X012917.jpg"]},{"kavel":"K1","nr":"B211","nrsort":211,"titel":"Maria Verdun","materiaal":"gepat.gips","datering":"ca.1935","afmeting":"30x22x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B211-X016819.jpg"]},{"kavel":"K3","nr":"B212","nrsort":212,"titel":"Liggend naakt","materiaal":"gepat.gips","datering":"ca.1967","afmeting":"31x125x22","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B212-2008-06-07 12.52.56.jpg"]},{"kavel":"K6","nr":"B213","nrsort":213,"titel":"H. Antonius van Padua","materiaal":"gepat.gips","datering":"ca.1951","afmeting":"103x28x23","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B213-PA120016.JPG"]},{"kavel":"K2","nr":"B214","nrsort":214,"titel":"Treurende vrouw","materiaal":"euvillesteen","datering":"ca.1954","afmeting":"39x12x8","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B214-X013095.jpg"]},{"kavel":"K3","nr":"B215","nrsort":215,"titel":"Jacqueline Bosserez","materiaal":"gepat.gips","datering":"1944","afmeting":"39x37x22","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B215-X016821.jpg","images/K3-B215-X016822.jpg"]},{"kavel":"K1","nr":"B216","nrsort":216,"titel":"De gedachte","materiaal":"Brouvillerssteen","datering":"ca.1935","afmeting":"49x13x11","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B216-X013096.jpg"]},{"kavel":"K4","nr":"B217","nrsort":217,"titel":"Christuskop","materiaal":"euvillesteen","datering":"1977","afmeting":"26x15x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B217-X013094.jpg"]},{"kavel":"K7","nr":"B218","nrsort":218,"titel":"Decoratieve meisjeskop","materiaal":"euvillesteen","datering":"ca.1976","afmeting":"32x20x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B218-FOUT-X016829.jpg","images/K7-B218-X013082.jpg","images/K7-B218-X013083.jpg"]},{"kavel":"K6","nr":"B219","nrsort":219,"titel":"Decoratief meisjeshoofd","materiaal":"euvillesteen","datering":"1976","afmeting":"29x18x19","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B219-X013088.jpg","images/K6-B219-X013089.jpg"]},{"kavel":"K1","nr":"B220","nrsort":220,"titel":"Decoratieve kop","materiaal":"kunststeen","datering":"ca.1950","afmeting":"24x14x21","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B220-X013099.jpg","images/K1-B220-X013100.jpg"]},{"kavel":"K5, K6","nr":"B221","nrsort":221,"titel":"Celestine (2x)","materiaal":"kunststeen en gips","datering":"ca.1937","afmeting":"21x13x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5","K6"],"gallery":["images/K6-B221-X013092.jpg","images/K6-B221-X013093.jpg"]},{"kavel":"K3","nr":"B222","nrsort":222,"titel":"Christuskopje","materiaal":"euvillesteen","datering":"ca.1965","afmeting":"21x10x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B222-X016791.jpg","images/K3-B222-X016792.jpg"]},{"kavel":"K1","nr":"B223","nrsort":223,"titel":"Decoratief meisjeshoofd","materiaal":"euvillesteen","datering":"ca.1954","afmeting":"18x16x23","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B223-X013086.jpg","images/K1-B223-X013087.jpg"]},{"kavel":"K7","nr":"B224","nrsort":224,"titel":"Christuskop","materiaal":"eikenhout","datering":"ca.1980","afmeting":"35x17x17","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B224-X016848.jpg"]},{"kavel":"K2","nr":"B225","nrsort":225,"titel":"Decoratief meisjeshoofd","materiaal":"euvillesteen","datering":"ca.1969","afmeting":"24x16x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B225-X013075.jpg","images/K2-B225-X013076.jpg"]},{"kavel":"K5","nr":"B226","nrsort":226,"titel":"Decoratief meisjeshoofd","materiaal":"euvillesteen","datering":"ca.1975","afmeting":"25x18x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B226-X013073.jpg","images/K5-B226-X013074.jpg"]},{"kavel":"K7","nr":"B227","nrsort":227,"titel":"Maria De Backer","materiaal":"gepat.gips","datering":"ca.1939","afmeting":"42x23x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B227-X016833.jpg","images/K7-B227-X016834.jpg"]},{"kavel":"K7","nr":"B228","nrsort":228,"titel":"Omhelzend koppel","materiaal":"terracotta","datering":"ca.1970","afmeting":"32x8x5","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B228-2008-06-07 23.15.28.jpg"]},{"kavel":"K3","nr":"B229","nrsort":229,"titel":"H. Lutgardis","materiaal":"gepat.gips","datering":"ca.1957","afmeting":"38x9x7","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B229-X016841.jpg"]},{"kavel":"K6","nr":"B230","nrsort":230,"titel":"Celestine","materiaal":"gepat.gips","datering":"ca.1940","afmeting":"25x15x18","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B230-X016779.jpg"]},{"kavel":"K2","nr":"B231","nrsort":231,"titel":"Mariette Van Inghelgem","materiaal":"gepat.gips","datering":"1944","afmeting":"31x18x21","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B231-X016837.jpg"]},{"kavel":"","nr":"B232","nrsort":232,"titel":"Madonna","materiaal":"gepat.gips","datering":"ca.1955","afmeting":"55x12x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":["images/K7-B232-X016854.jpg"]},{"kavel":"K6","nr":"B233","nrsort":233,"titel":"Lucienne Van De Venne","materiaal":"gepat.gips","datering":"1934","afmeting":"38x26x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B233-X016774.jpg","images/K6-B233-X016775.jpg"]},{"kavel":"K5","nr":"B234","nrsort":234,"titel":"Familie","materiaal":"keramiek","datering":"ca.1971","afmeting":"46x12x8","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B234-X016898.jpg"]},{"kavel":"K1,K2","nr":"B235","nrsort":235,"titel":"Joris Baers (2x)","materiaal":"gepat.gips","datering":"1936","afmeting":"46x58x27","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K2"],"gallery":["images/K1-B235-X012878_1.jpg","images/K1-B235-X012878.jpg","images/K2-B235-X012878.jpg"]},{"kavel":"K5","nr":"B236","nrsort":236,"titel":"Decoratieve meisjeskop","materiaal":"eikenhout","datering":"ca.1973","afmeting":"26x15x21","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B236-X016830.jpg","images/K5-B236-X016831.jpg"]},{"kavel":"K3","nr":"B237","nrsort":237,"titel":"Schets J. Hammeneckermonument","materiaal":"hout","datering":"1957","afmeting":"31x15x6","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B237-X012940.jpg","images/K3-B237-X012941.jpg"]},{"kavel":"K4","nr":"B238","nrsort":238,"titel":"Decoratieve kop","materiaal":"eikenhout","datering":"1939","afmeting":"34x18x18","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B238-X016832.jpg"]},{"kavel":"K2","nr":"B239","nrsort":239,"titel":"Gehurkte Madonna","materiaal":"terracotta","datering":"ca.1965","afmeting":"50x23x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B239-X016808.jpg"]},{"kavel":"K3","nr":"B240","nrsort":240,"titel":"Moeder en kind","materiaal":"keramiek","datering":"ca.1963","afmeting":"36x14x18","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B240-X016886.jpg"]},{"kavel":"K5","nr":"B241","nrsort":241,"titel":"Moeder en kind","materiaal":"euvillesteen","datering":"ca.1973","afmeting":"35x50x9","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B241-X013103.jpg"]},{"kavel":"K2","nr":"B242","nrsort":242,"titel":"Moeder en kind","materiaal":"arduin","datering":"ca.1950","afmeting":"49x27x4","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B242-X016912.jpg"]},{"kavel":"K6","nr":"B243","nrsort":243,"titel":"Bloemenmeisje","materiaal":"kunststeen","datering":"ca.1970","afmeting":"220x40 x40","plaats":"","materiaalGroep":"steen","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B243-x008424.jpg"]},{"kavel":"K7","nr":"B244","nrsort":244,"titel":"De Boodschap aan Maria","materiaal":"euvillesteen","datering":"1956","afmeting":"49x39x7","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B244-X013104.jpg"]},{"kavel":"K5","nr":"B245","nrsort":245,"titel":"Manskop","materiaal":"terracotta","datering":"ca.1925","afmeting":"40x26x33","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B245-2008-06-08 17.28.32.jpg"]},{"kavel":"K1, K6","nr":"B246","nrsort":246,"titel":"Guido Gezelle (2x)","materiaal":"gepat.gips","datering":"1930","afmeting":"43x29x24","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K6"],"gallery":["images/K6-B246-X012876.jpg"]},{"kavel":"K4","nr":"B247","nrsort":247,"titel":"Jongenstweeling","materiaal":"gepat.gips","datering":"ca.1945","afmeting":"33x47x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B247-X016781.jpg"]},{"kavel":"K4","nr":"B248","nrsort":248,"titel":"M.Schuermans","materiaal":"gepat.gips","datering":"ca.1940","afmeting":"41x47x26","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B248-2008-06-08 17.48.33.jpg"]},{"kavel":"K4","nr":"B249","nrsort":249,"titel":"Maria Baers","materiaal":"gepat.gips","datering":"ca.1938","afmeting":"47x34x26","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B249-2008-06-08 17.49.39.jpg"]},{"kavel":"K4","nr":"B250","nrsort":250,"titel":"Christuskop","materiaal":"gepat.gips","datering":"ca.1941","afmeting":"29x15x16","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B250-X016845.jpg"]},{"kavel":"K5","nr":"B251","nrsort":251,"titel":"Kruisomarming van Sint Lutgart","materiaal":"gepat.gips","datering":"ca.1950","afmeting":"55x14x9","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B251-X016826.jpg","images/K5-B251-X016827.jpg"]},{"kavel":"K7","nr":"B252","nrsort":252,"titel":"Pater Frateur","materiaal":"gepat.gips","datering":"ca.1938","afmeting":"41x30x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B252-X012925.jpg"]},{"kavel":"K7","nr":"B253","nrsort":253,"titel":"Broeder Jenné","materiaal":"gepat.gips","datering":"1940","afmeting":"45x50x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B253-X012924.jpg"]},{"kavel":"K5","nr":"B254","nrsort":254,"titel":"Simeon (fragment v.d. Opdracht in de tempel)","materiaal":"gepat.gips","datering":"ca.1951","afmeting":"53x39x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B254-X016846.jpg"]},{"kavel":"K3","nr":"B255","nrsort":255,"titel":"Burgemeester Van Roy","materiaal":"gepat.gips","datering":"1946","afmeting":"50x58x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B255-X012913.jpg"]},{"kavel":"K3","nr":"B256","nrsort":256,"titel":"Constant De Smedt","materiaal":"gepat.gips","datering":"ca.1934","afmeting":"32x23x23","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B256-X016776.jpg"]},{"kavel":"K1","nr":"B257","nrsort":257,"titel":"Meisjeskopje (De Groof)","materiaal":"gepat.gips","datering":"ca.1939","afmeting":"30x20x21","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B257-X016777.jpg","images/K1-B257-X016778.jpg"]},{"kavel":"K2","nr":"B258","nrsort":258,"titel":"Gustaaf Verbert","materiaal":"gepat.gips","datering":"ca.1941","afmeting":"39x28x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B258-X016780.jpg"]},{"kavel":"K3","nr":"B259","nrsort":259,"titel":"Tijl Uylenspiegel","materiaal":"terracotta","datering":"ca.1926","afmeting":"26x17x20","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B259-X016797.jpg","images/K3-B259-X016798.jpg"]},{"kavel":"K1","nr":"B260","nrsort":260,"titel":"Piëta (reliëf)","materiaal":"gepat.gips","datering":"ca.1946","afmeting":"29x14x2","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B260-P7030022.JPG"]},{"kavel":"K1","nr":"B261","nrsort":261,"titel":"Maria en Jezus (fragmentv.d. Opdracht in de tempel)","materiaal":"gepat.gips","datering":"ca.1951","afmeting":"51x38x36","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B261-X016847.jpg"]},{"kavel":"K4","nr":"B262","nrsort":262,"titel":"Madonna met lier","materiaal":"gepat.gips","datering":"ca.1954","afmeting":"54x12x14","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B262-X016794.jpg"]},{"kavel":"K3","nr":"B263","nrsort":263,"titel":"Broeder Frans Schelkens","materiaal":"gepat.gips","datering":"ca.1946","afmeting":"39x24x26","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B263-X012923.jpg"]},{"kavel":"K6","nr":"B264","nrsort":264,"titel":"Oude profeet","materiaal":"gepat.gips","datering":"ca.1933","afmeting":"33x31x15","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B264-X016839.jpg"]},{"kavel":"K6","nr":"B265","nrsort":265,"titel":"De sleuteloverdracht","materiaal":"eikenhout","datering":"ca.1924","afmeting":"111x40x2","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B265-P1210003.JPG","images/K6-B265-P1230007.JPG","images/K6-B265-P1230008.JPG","images/K6-B265-P1230010.JPG"]},{"kavel":"K5","nr":"B266","nrsort":266,"titel":"Naakt met sjaal","materiaal":"gepat.gips","datering":"ca.1950","afmeting":"74x23x14","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B266-X016811.jpg"]},{"kavel":"K3, K6","nr":"B267","nrsort":267,"titel":"Ernest Van der Hallen (2x)","materiaal":"gepat.gips","datering":"1935","afmeting":"44x20x27","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3","K6"],"gallery":["images/K3-B267-(2)-X016877.jpg","images/K6-B267-X012877.jpg","images/K6-B267-X016876.jpg"]},{"kavel":"K5, K6","nr":"B267","nrsort":267,"titel":"Ernest Van der Hallen (2x)","materiaal":"gepat.gips","datering":"1935","afmeting":"35x24x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5","K6"],"gallery":["images/K6-B267-X012877.jpg","images/K6-B267-X016876.jpg"]},{"kavel":"K6","nr":"B268","nrsort":268,"titel":"(1) Anton Van De Velde (2x)","materiaal":"gepat.gips","datering":"ca.1939","afmeting":"34x21x26","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":[]},{"kavel":"K1","nr":"B268","nrsort":268,"titel":"(2) Anton Van De Velde (2x)","materiaal":"gepat.gips","datering":"ca.1939","afmeting":"35x20x28","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B268-(2)-X016875.jpg","images/K1-B268-1-X012895.jpg"]},{"kavel":"K5","nr":"B269","nrsort":269,"titel":"Meisjesportret","materiaal":"gepat.gips","datering":"ca.1934","afmeting":"28x19x25","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B269-X016785.jpg"]},{"kavel":"K6","nr":"B270","nrsort":270,"titel":"Danseres(bas-reliëf)","materiaal":"gepat.gips","datering":"ca.1953","afmeting":"74x19x2.50","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B270-B270 Danseres.JPG"]},{"kavel":"K7","nr":"B271","nrsort":271,"titel":"Manskop","materiaal":"bontzandsteen","datering":"ca.1945","afmeting":"39x23x23","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B271-X016816.jpg"]},{"kavel":"K2","nr":"B272","nrsort":272,"titel":"Naakt met handdoek","materiaal":"gepat.gips","datering":"ca.1969","afmeting":"73x17x15","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B272-X016810.jpg"]},{"kavel":"K3","nr":"B273","nrsort":273,"titel":"Decoratief meisjeshoofd","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"27x16x28","plaats":"","materiaalGroep":"steen","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B273-X013079.jpg","images/K3-B273-X013080.jpg"]},{"kavel":"K6","nr":"B274","nrsort":274,"titel":"Fragment G.Nobels","materiaal":"gepat.gips","datering":"ca.1935","afmeting":"29x21x19","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B274-X013020.jpg"]},{"kavel":"K5","nr":"B275","nrsort":275,"titel":"Masker Ida Declercq","materiaal":"gepat.gips","datering":"ca.1942","afmeting":"27x18x12","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B275-X016799.jpg"]},{"kavel":"K4","nr":"B276","nrsort":276,"titel":"Masker van Charlientje","materiaal":"terracotta","datering":"ca.1931","afmeting":"20x18x12","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B276-X016783.jpg","images/K4-B276-X016784.jpg"]},{"kavel":"K4","nr":"B277","nrsort":277,"titel":"Decoratief meisjeskopje","materiaal":"euvillesteen","datering":"ca.1959","afmeting":"27x12x22","plaats":"","materiaalGroep":"steen","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B277-X013071.jpg"]},{"kavel":"K4","nr":"B278","nrsort":278,"titel":"Masker Mevr. Scheere","materiaal":"gepat.gips","datering":"ca.1937","afmeting":"33x21x15","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B278-X013021.jpg"]},{"kavel":"K2","nr":"B279","nrsort":279,"titel":"Decoratieve kop","materiaal":"euvillesteen","datering":"ca.1974","afmeting":"28x15x30","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B279-X013081.jpg"]},{"kavel":"K1","nr":"B280","nrsort":280,"titel":"Vlucht naar Egypte","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"31x24x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B280-X013091.jpg"]},{"kavel":"K5","nr":"B281","nrsort":281,"titel":"Pater Fons Verhavert","materiaal":"gepat.gips","datering":"1931","afmeting":"30x25x27","plaats":"","materiaalGroep":"gips","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B281-X012921.jpg","images/K5-B281-X012922.jpg"]},{"kavel":"K4","nr":"B282","nrsort":282,"titel":"Leo Scheere jr.","materiaal":"gepat.gips","datering":"ca.1937","afmeting":"29x22x20","plaats":"","materiaalGroep":"gips","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B282-X016782.jpg"]},{"kavel":"K7","nr":"B283","nrsort":283,"titel":"Paula De Smedt","materiaal":"gepat.gips","datering":"ca.1941","afmeting":"38x38x22","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B283-X016817.jpg"]},{"kavel":"K7","nr":"B284","nrsort":284,"titel":"Mevr. Van De Velde","materiaal":"gepat.gips","datering":"ca.1943","afmeting":"37x24x23","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B284-X016825.jpg"]},{"kavel":"K2","nr":"B285","nrsort":285,"titel":"Frans Van De Velde","materiaal":"gepat.gips","datering":"ca.1943","afmeting":"39x20x21","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B285-X016828.jpg"]},{"kavel":"K1","nr":"B286","nrsort":286,"titel":"Decoratieve kop","materiaal":"gepat.steen","datering":"ca.1973","afmeting":"37x14x21","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B286-X016818.jpg"]},{"kavel":"K6","nr":"B287","nrsort":287,"titel":"Vrouwelijk naakt","materiaal":"terracotta","datering":"ca.1976","afmeting":"69x14x14","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B287-X016899.jpg"]},{"kavel":"K2","nr":"B288","nrsort":288,"titel":"Decoratieve vaas","materiaal":"keramiek","datering":"1964","afmeting":"35x13x25","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B288-X016902.jpg"]},{"kavel":"K3","nr":"B289","nrsort":289,"titel":"Decoratieve vaas","materiaal":"keramiek","datering":"1964","afmeting":"36 x 17 x 29","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B289-X016901.jpg"]},{"kavel":"K5","nr":"B290","nrsort":290,"titel":"Decoratieve vaas","materiaal":"keramiek","datering":"1964","afmeting":"36x13x21","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B290-X016903.jpg"]},{"kavel":"K7","nr":"B291","nrsort":291,"titel":"H. Lutgardis (bas-reliëf)","materiaal":"brons","datering":"ca.1955","afmeting":"42x26","plaats":"","materiaalGroep":"brons","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B291-2008-06-11 20.20.22.jpg"]},{"kavel":"K6","nr":"B292","nrsort":292,"titel":"Staande Madonna","materiaal":"gepat.gips","datering":"ca.1954","afmeting":"47x13x13","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B292-X016852.jpg"]},{"kavel":"Herman junior","nr":"B293","nrsort":293,"titel":"Moeder en kind","materiaal":"terracotta","datering":"1975","afmeting":"75x15x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"Herman","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K7","nr":"B294","nrsort":294,"titel":"Kruisbeeld","materiaal":"gepat.gips","datering":"ca.1936","afmeting":"31x24x4","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B294-2008-06-11 20.41.29.jpg"]},{"kavel":"K5","nr":"B295","nrsort":295,"titel":"Kruisbeeld","materiaal":"gepat.lindenhout","datering":"ca.1933","afmeting":"40x41x9","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B295-X016914.jpg"]},{"kavel":"K5","nr":"B296","nrsort":296,"titel":"Madonna","materiaal":"eikenhout","datering":"ca.1956","afmeting":"32x8x6","plaats":"","materiaalGroep":"hout","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B296-X016893.jpg"]},{"kavel":"K4","nr":"B297","nrsort":297,"titel":"Christus in het graf (bozzetto)","materiaal":"eikenhout","datering":"ca.1956","afmeting":"7x30x6","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B297-X013002.jpg"]},{"kavel":"K2","nr":"B298","nrsort":298,"titel":"H. Angela","materiaal":"eikenhout","datering":"1985","afmeting":"85x12x11","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B298-X016850.jpg"]},{"kavel":"K7","nr":"B299","nrsort":299,"titel":"H. Angela","materiaal":"terracotta","datering":"1985","afmeting":"49x12 x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B299-X016849.jpg"]},{"kavel":"K1","nr":"B300","nrsort":300,"titel":"Vader en zoon","materiaal":"terracotta","datering":"ca.1988","afmeting":"47x25x20","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B300-X016793.jpg"]},{"kavel":"K7","nr":"B301","nrsort":301,"titel":"Christustorso","materiaal":"eik","datering":"1975","afmeting":"83x27x13","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B301-2008-06-12 20.23.39.jpg"]},{"kavel":"K6","nr":"B302","nrsort":302,"titel":"Christustorso","materiaal":"eik","datering":"1976","afmeting":"76x13x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/(correctie B60)K6-B302-X012963.jpg","images/(correctie B60)K6-B302-X012964.jpg"]},{"kavel":"K2","nr":"B303","nrsort":303,"titel":"Naaikistje","materiaal":"eik","datering":"ca.1926","afmeting":"15x35x23","plaats":"","materiaalGroep":"hout","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B303-2008-06-12 20.57.44.jpg"]},{"kavel":"K6","nr":"B304","nrsort":304,"titel":"Kruisbeeld","materiaal":"keramiek","datering":"ca.1963","afmeting":"50x40x5","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/(correctie B294)K6-B304-X016916.jpg"]},{"kavel":"K7","nr":"B305","nrsort":305,"titel":"De Vlam","materiaal":"eik","datering":"ca.1983","afmeting":"44x19x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B305-2008-06-12 05.56.01.jpg"]},{"kavel":"K4","nr":"B306","nrsort":306,"titel":"De drie wenende vrouwen","materiaal":"keramiek (Greta)","datering":"ca.1964","afmeting":"35x23x2","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B306-2008-06-13 17.34.14.jpg"]},{"kavel":"K6","nr":"B307","nrsort":307,"titel":"Zittende Madonna","materiaal":"eik","datering":"ca.1953","afmeting":"32x25x2","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B307-PA120013.JPG"]},{"kavel":"K4","nr":"B308","nrsort":308,"titel":"Gekruisigde met Maria en Johannes","materiaal":"eik","datering":"ca.1953","afmeting":"23x25x2","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B308-2008-06-12 22.53.40.jpg"]},{"kavel":"K3","nr":"B309","nrsort":309,"titel":"Chinoiserie","materiaal":"laque de Chine op hout","datering":"ca.1927","afmeting":"32x23x1","plaats":"","materiaalGroep":"hout","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B309-2008-06-13 17.41.40.jpg"]},{"kavel":"K3","nr":"B310","nrsort":310,"titel":"Kruisbeeld","materiaal":"keramiek","datering":"ca.1962","afmeting":"31x26x2","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B310-X016915.jpg"]},{"kavel":"K7","nr":"B311","nrsort":311,"titel":"Kom met deksel","materiaal":"hout","datering":"ca.1935","afmeting":"15x20x20","plaats":"","materiaalGroep":"hout","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B311-X016906.jpg","images/K7-B311-X016907.jpg","images/K7-B311-X016908.jpg","images/K7-B311-X016909.jpg"]},{"kavel":"Chris (R. Dewachter)","nr":"B312","nrsort":312,"titel":"Staande Madonna (Chris)","materiaal":"eik","datering":"1943","afmeting":"73x17x10","plaats":"","materiaalGroep":"hout","kavelPrimary":"Chris","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K7","nr":"B313","nrsort":313,"titel":"De student","materiaal":"euvillesteen","datering":"ca.1960","afmeting":"22x39x10","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B313-X013102.jpg"]},{"kavel":"K7","nr":"B314","nrsort":314,"titel":"Gevelsteen met kop","materiaal":"euvillesteen","datering":"ca.1955","afmeting":"22x18x26","plaats":"","materiaalGroep":"steen","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B314-X013084.jpg"]},{"kavel":"K6","nr":"B315","nrsort":315,"titel":"H.Hartbeeld","materiaal":"eik","datering":"1934","afmeting":"62x15x15","plaats":"","materiaalGroep":"hout","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":[]},{"kavel":"K4","nr":"B316","nrsort":316,"titel":"Verrezen Christus","materiaal":"terracotta","datering":"ca.1969","afmeting":"90x20x15","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B316-X016809.jpg"]},{"kavel":"K7","nr":"B317","nrsort":317,"titel":"Zwangere vrouw","materiaal":"terracotta","datering":"ca.1969","afmeting":"65x20x27","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B317-X016812.jpg","images/K7-B317-X016813.jpg"]},{"kavel":"K1","nr":"B318","nrsort":318,"titel":"Peter Van den Meutter","materiaal":"euvillesteen","datering":"ca.1970","afmeting":"22x16x20","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B318-X013070.jpg"]},{"kavel":"K2","nr":"B319","nrsort":319,"titel":"Vrouwenhoofd","materiaal":"euvillesteen","datering":"ca.1987","afmeting":"23x15x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B319-X013107.jpg"]},{"kavel":"K5","nr":"B320","nrsort":320,"titel":"Christuskop","materiaal":"euvillesteen","datering":"ca.1988","afmeting":"23x13x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B320-X013085.jpg"]},{"kavel":"K1","nr":"B321","nrsort":321,"titel":"Moeder en kind (laatste beeld)","materiaal":"euvillesteen","datering":"ca.1990","afmeting":"48x31x13","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B321-X013098.jpg"]},{"kavel":"K1,K5","nr":"B322","nrsort":322,"titel":"Zittende Madonna (2x)","materiaal":"kunststeen","datering":"1931","afmeting":"40x13x16","plaats":"","materiaalGroep":"steen","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K5"],"gallery":["images/K1-B322-X013044.jpg","images/K1-B322-X013045.jpg","images/K5-B322-X013044.jpg","images/K5-B322-X013045.jpg"]},{"kavel":"K1","nr":"B323","nrsort":323,"titel":"Christuskopje (fragment schets H. Hart te Varsenare)","materiaal":"keramiek","datering":"1938","afmeting":"7x4x5","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B323-2008-06-13 10.08.31.jpg"]},{"kavel":"K3","nr":"B324","nrsort":324,"titel":"Kop gesneuvelde soldaat","materiaal":"gips","datering":"1934","afmeting":"37x25x26","plaats":"","materiaalGroep":"gips","kavelPrimary":"K3","plaatsCategorie":"","kavelTokens":["K3"],"gallery":["images/K3-B324-X012947.jpg"]},{"kavel":"K2","nr":"B325","nrsort":325,"titel":"Wiske (fragment)","materiaal":"gips","datering":"ca.1935","afmeting":"31x20x22","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B325-X016838.jpg"]},{"kavel":"K7","nr":"B326","nrsort":326,"titel":"Vrouwenhoofd","materiaal":"gips","datering":"ca.1940","afmeting":"29x19x23","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B326-X016840.jpg"]},{"kavel":"K1","nr":"B327","nrsort":327,"titel":"Meisjeskopje","materiaal":"terracotta","datering":"ca.1963","afmeting":"23x5x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1"],"gallery":["images/K1-B327(correctie)-2008-06-13 10.36.59.jpg"]},{"kavel":"K7","nr":"B328","nrsort":328,"titel":"Meisje met hoofddoek (fragment)","materiaal":"gips","datering":"ca.1940","afmeting":"25x16x8","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B328-X013022.jpg"]},{"kavel":"K1, K6","nr":"B329","nrsort":329,"titel":"Gekruisigde Christus (2x)","materiaal":"gips","datering":"ca.1933","afmeting":"61x16x14","plaats":"","materiaalGroep":"gips","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K6"],"gallery":["images/K1-K6-B329-Scannen0606.jpg","images/K6-B329-Scannen0606.jpg"]},{"kavel":"K2,K4","nr":"B330","nrsort":330,"titel":"Sint Lutgart","materiaal":"gips","datering":"ca.1958","afmeting":"30x13x5","plaats":"","materiaalGroep":"gips","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2","K4"],"gallery":["images/K2-K4-B330-2008-06-12 19.39.19.jpg"]},{"kavel":"Chris  (Baeté)","nr":"B331","nrsort":331,"titel":"Bezinning","materiaal":"marmer","datering":"1937","afmeting":"29x20x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"Chris","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K7","nr":"B332","nrsort":332,"titel":"De 7 weeën van Maria (reliëf)","materiaal":"linde","datering":"1935","afmeting":"23x83x5","plaats":"","materiaalGroep":"overig","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":[]},{"kavel":"K7","nr":"B333","nrsort":333,"titel":"Straatmuzikanten (koppen-reliëf)","materiaal":"polyester","datering":"ca.1979","afmeting":"38x66x2","plaats":"","materiaalGroep":"overig","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B333-2008-06-12 22.15.27.jpg"]},{"kavel":"K2","nr":"B334","nrsort":334,"titel":"Straatmuzikanten (reliëf)","materiaal":"kunststeen","datering":"ca.1979","afmeting":"70x30x2","plaats":"","materiaalGroep":"steen","kavelPrimary":"K2","plaatsCategorie":"","kavelTokens":["K2"],"gallery":["images/K2-B334-2008-06-12 22.13.00.jpg"]},{"kavel":"K4","nr":"B335","nrsort":335,"titel":"Amazone (reliëf)","materiaal":"polyester","datering":"ca.1975","afmeting":"62x48x2","plaats":"","materiaalGroep":"overig","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B335-2008-06-12 22.12.23.jpg"]},{"kavel":"","nr":"B336","nrsort":336,"titel":"Staande Madonna (zijgevel woning)","materiaal":"keramiek","datering":"ca.1966","afmeting":"104x25x5","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K5","nr":"B337","nrsort":337,"titel":"Krachtbalspeler","materiaal":"terracotta","datering":"ca.1982","afmeting":"45x18x10","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K5","plaatsCategorie":"","kavelTokens":["K5"],"gallery":["images/K5-B337-2008-06-12 20.11.39.jpg"]},{"kavel":"K4","nr":"B338","nrsort":338,"titel":"Ovale schotel","materiaal":"keramiek","datering":"ca.1972","afmeting":"3x18x38","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B338-2008-06-12 22.18.36.jpg"]},{"kavel":"K4","nr":"B339","nrsort":339,"titel":"Christoffel","materiaal":"eik","datering":"ca.1953","afmeting":"36x12x11","plaats":"","materiaalGroep":"hout","kavelPrimary":"K4","plaatsCategorie":"","kavelTokens":["K4"],"gallery":["images/K4-B339-2008-06-12 20.11.06.jpg"]},{"kavel":"K1, K6","nr":"B340","nrsort":340,"titel":"Verrezen Christus(2x)","materiaal":"keramiek","datering":"ca.1969","afmeting":"90x12x2","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"K1","plaatsCategorie":"","kavelTokens":["K1","K6"],"gallery":["images/K6-B340-B340,Verezen Christus.JPG"]},{"kavel":"","nr":"B341","nrsort":341,"titel":"Verrezen Christus (Greta)","materiaal":"terracotta","datering":"ca.1968","afmeting":"92x20x2","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B342","nrsort":342,"titel":"Verrezen Christus (grafsteen Karel De Cuyper)","materiaal":"keramiek","datering":"1964","afmeting":"71x15x2 Zerk","plaats":"","materiaalGroep":"terracotta / keramiek","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B343","nrsort":343,"titel":"Evocatief hoofd (Aanzet atelierstuk)","materiaal":"bontzandsteen","datering":"ca.1977","afmeting":"30x30x15","plaats":"","materiaalGroep":"steen","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B344","nrsort":344,"titel":"Gedenksteen F. Heulens (Aanzet atelierstuk)","materiaal":"gips","datering":"1986","afmeting":"113x53x13","plaats":"","materiaalGroep":"gips","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B345","nrsort":345,"titel":"Verrezen Christus (reliëf) (Aanzet atelierstuk)","materiaal":"eik","datering":"ca.1986","afmeting":"220x29x5","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B346","nrsort":346,"titel":"Orpheus (aanzet reliëf t.d.) (Aanzet atelierstuk)","materiaal":"eik","datering":"ca.1979","afmeting":"275x90x15","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K6","nr":"B347","nrsort":347,"titel":"Console met 3 wangreliëfs","materiaal":"gips","datering":"ca.1968","afmeting":"46x25x28","plaats":"","materiaalGroep":"gips","kavelPrimary":"K6","plaatsCategorie":"","kavelTokens":["K6"],"gallery":["images/K6-B347-X016842.jpg","images/K6-B347-X016843.jpg"]},{"kavel":"","nr":"B348","nrsort":348,"titel":"De lente (meubelpaneel)","materiaal":"eik","datering":"ca.1960","afmeting":"28x10x1","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B349","nrsort":349,"titel":"De zomer","materiaal":"eik","datering":"ca.1960","afmeting":"28x10x1","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B350","nrsort":350,"titel":"De herfst","materiaal":"eik","datering":"ca.1960","afmeting":"28x10x1","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"","nr":"B351","nrsort":351,"titel":"De winter","materiaal":"eik","datering":"ca.1960","afmeting":"28x10x1","plaats":"","materiaalGroep":"hout","kavelPrimary":"","plaatsCategorie":"","kavelTokens":[],"gallery":[]},{"kavel":"K7","nr":"B352","nrsort":352,"titel":"Staande Madonna","materiaal":"gips","datering":"ca.1958","afmeting":"54x16x15","plaats":"","materiaalGroep":"gips","kavelPrimary":"K7","plaatsCategorie":"","kavelTokens":["K7"],"gallery":["images/K7-B352-X016853.jpg"]}]</script>
+<script>(function(){
+  const RAW = JSON.parse(document.getElementById('data-source').textContent);
+  RAW.forEach(r => { if(!Array.isArray(r.gallery)) r.gallery = []; }); // baked in at build time; refined further if a live manifest.txt is found
+
+  const grid = document.getElementById('grid');
+  const searchInput = document.getElementById('searchInput');
+  const clearBtn = document.getElementById('clearBtn');
+  const kavelFilter = document.getElementById('kavelFilter');
+  const materiaalFilter = document.getElementById('materiaalFilter');
+  const plaatsFilter = document.getElementById('plaatsFilter');
+  const sortSelect = document.getElementById('sortSelect');
+  const resultCount = document.getElementById('resultCount');
+  const overlay = document.getElementById('overlay');
+  const modal = document.getElementById('modal');
+
+  // ---- populate stats ----
+  document.getElementById('statTotal').textContent = RAW.length;
+  const kavelSet = new Set(RAW.map(r => r.kavelPrimary).filter(Boolean));
+  document.getElementById('statKavels').textContent = kavelSet.size;
+  const matSet = new Set(RAW.map(r => r.materiaalGroep).filter(Boolean));
+  document.getElementById('statMaterialen').textContent = matSet.size;
+
+  // ---- populate filter selects ----
+  const kavelOrder = Array.from(kavelSet).sort((a,b)=>{
+    const na = parseInt(a.replace(/\D/g,'')) || 999;
+    const nb = parseInt(b.replace(/\D/g,'')) || 999;
+    if(na!==nb) return na-nb;
+    return a.localeCompare(b);
+  });
+  kavelOrder.forEach(k=>{
+    const opt = document.createElement('option');
+    opt.value = k; opt.textContent = k;
+    kavelFilter.appendChild(opt);
+  });
+
+  const matOrder = Array.from(matSet).sort();
+  matOrder.forEach(m=>{
+    const opt = document.createElement('option');
+    opt.value = m; opt.textContent = m.charAt(0).toUpperCase()+m.slice(1);
+    materiaalFilter.appendChild(opt);
+  });
+
+  function plaatsFlagClass(cat){
+    if(!cat) return '';
+    const low = cat.toLowerCase();
+    if(low === 'privé') return 'flag-prive';
+    if(low === 'publiek') return 'flag-publiek';
+    return 'flag-geschonken';
+  }
+
+  const plaatsSet = Array.from(new Set(RAW.map(r => r.plaatsCategorie).filter(Boolean)));
+  const plaatsOrder = plaatsSet.sort((a,b)=>{
+    const rank = v => v.toLowerCase()==='privé' ? 0 : v.toLowerCase()==='publiek' ? 1 : 2;
+    const ra = rank(a), rb = rank(b);
+    if(ra !== rb) return ra - rb;
+    return a.localeCompare(b, 'nl');
+  });
+  plaatsOrder.forEach(p=>{
+    const opt = document.createElement('option');
+    opt.value = p; opt.textContent = p;
+    plaatsFilter.appendChild(opt);
+  });
+  if(plaatsOrder.length === 0){
+    const opt = document.createElement('option');
+    opt.value = '__none__'; opt.textContent = 'Nog geen plaats ingevuld';
+    opt.disabled = true;
+    plaatsFilter.appendChild(opt);
+  }
+
+  // =========================================================
+  // Foto-manifest: koppelt bestanden in images/ aan werken via
+  // "K<kavel>-<Nr><variant>-..." in de bestandsnaam.
+  // =========================================================
+  function escapeRegex(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  function matchesRecord(filenameUpper, r){
+    const compactFile = filenameUpper.replace(/\s+/g,'');
+    const nrCompact = r.nr.toUpperCase().replace(/\s+/g,'');
+    const nrEsc = escapeRegex(nrCompact);
+    const nrRegex = new RegExp('(^|[^0-9A-Z])' + nrEsc + '([A-Z]?)(?![0-9A-Z])');
+    if(!nrRegex.test(compactFile)) return false;
+    if(r.kavelTokens.length === 0) return true;
+    return r.kavelTokens.some(t => {
+      const tk = t.toUpperCase();
+      const tkRegex = new RegExp('(^|[^0-9A-Z])' + tk + '-');
+      return tkRegex.test(filenameUpper);
+    });
+  }
+
+  function buildGalleries(filenames){
+    // strip empty lines / stray whitespace, ignore the manifest file itself
+    const clean = filenames.map(f=>f.trim()).filter(f=>f && !/manifest\.(txt|json)$/i.test(f));
+    RAW.forEach(r=>{
+      const matches = clean.filter(f => matchesRecord(f.toUpperCase(), r));
+      matches.sort((a,b)=>a.localeCompare(b));
+      r.gallery = matches.map(f => 'images/' + f.replace(/^images[\\/]/i,''));
+    });
+  }
+
+  async function loadManifest(){
+    // De galerijen staan al ingebakken in de data (op basis van het manifest
+    // dat je eerder aanleverde). Deze fetch is een OPTIONELE herlaadstap:
+    // zet je later een bijgewerkte images/manifest.txt online, dan wordt de
+    // koppeling automatisch verfijnd zonder dat de pagina opnieuw gebouwd moet worden.
+    try{
+      const res = await fetch('images/manifest.txt', { cache:'no-store' });
+      if(!res.ok) return;
+      const text = await res.text();
+      const lines = text.split(/\r?\n/);
+      buildGalleries(lines);
+      render();
+    }catch(err){
+      // geen (nieuwer) manifest gevonden, of lokaal geopend via file:// — de ingebakken data blijft gelden
+    }
+  }
+
+  // ---- placeholder & media rendering ----
+  const bustSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3c-2.2 0-4 2-4 4.5S9.8 12 12 12s4-2 4-4.5S14.2 3 12 3z"/><path d="M5 21c0-4.5 3-7 7-7s7 2.5 7 7"/></svg>';
+
+  function placeholderHTML(r){
+    const hint = [r.kavelTokens.join('/'), r.nr].filter(Boolean).join(' · ');
+    return `<div class="placeholder">${bustSVG}<span class="ph-file">${hint || '—'}</span></div>`;
+  }
+  function escapeHTML(s){
+    return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function mediaHTML(r){
+    if(!r.gallery || r.gallery.length === 0) return placeholderHTML(r);
+    const dots = r.gallery.length > 1
+      ? `<div class="photo-dots">${r.gallery.map((_,i)=>`<span class="${i===0?'active':''}"></span>`).join('')}</div>
+         <div class="photo-count-badge">1/${r.gallery.length}</div>`
+      : '';
+    return `<img src="${r.gallery[0]}" alt="${escapeHTML(r.titel)}" loading="lazy" data-record-img="1">${dots}`;
+  }
+
+  function bindImageFallback(container, r){
+    const img = container.querySelector('img[data-record-img]');
+    if(!img) return;
+    img.addEventListener('error', ()=>{ container.innerHTML = placeholderHTML(r); }, { once:true });
+  }
+
+  function cardHTML(r, idx){
+    const metaLine1 = [r.materiaal, r.datering].filter(Boolean).join(' · ');
+    const dims = r.afmeting ? `<span class="dim">${escapeHTML(r.afmeting)}</span>` : '';
+    const plaatsCat = r.plaatsCategorie;
+    const plaatsTag = plaatsCat
+      ? `<span class="plaats-flag ${plaatsFlagClass(plaatsCat)}" title="${escapeHTML(plaatsCat)}">${escapeHTML(plaatsCat)}</span>`
+      : `<span style="opacity:.45">plaats n.n.b.</span>`;
+    const scrubClass = (r.gallery && r.gallery.length > 1) ? ' scrub' : '';
+    return `
+    <article class="card" tabindex="0" data-idx="${idx}" role="button" aria-label="Bekijk details van ${escapeHTML(r.titel || r.nr)}">
+      <div class="card-media${scrubClass}">
+        ${mediaHTML(r)}
+        <div class="kavel-badge">${escapeHTML(r.kavel || '—')}</div>
+        <div class="stamp-badge">${escapeHTML(r.nr)}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title">${escapeHTML(r.titel) || '<span style="opacity:.5">Zonder titel</span>'}</div>
+        <div class="card-meta">${escapeHTML(metaLine1)}${dims ? '<br>'+dims : ''}</div>
+        <div class="card-tags">
+          <span>${escapeHTML(r.materiaalGroep || '')}</span>
+          ${plaatsTag}
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function naturalNrCompare(a,b){
+    if(a.nrsort !== b.nrsort) return a.nrsort - b.nrsort;
+    return a.nr.localeCompare(b.nr);
+  }
+
+  function currentFiltered(){
+    const q = searchInput.value.trim().toLowerCase();
+    const kv = kavelFilter.value;
+    const mat = materiaalFilter.value;
+    const pl = plaatsFilter.value;
+
+    let list = RAW.filter(r=>{
+      if(kv && r.kavelPrimary !== kv) return false;
+      if(mat && r.materiaalGroep !== mat) return false;
+      if(pl && pl !== '__none__' && r.plaatsCategorie !== pl) return false;
+      if(q){
+        const hay = [r.titel, r.materiaal, r.kavel, r.nr, r.datering, r.afmeting, r.plaats].join(' ').toLowerCase();
+        if(!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    const sortMode = sortSelect.value;
+    list = list.slice().sort((a,b)=>{
+      if(sortMode === 'titel') return (a.titel||'').localeCompare(b.titel||'', 'nl');
+      if(sortMode === 'kavel'){
+        const ka = a.kavelPrimary||'', kb = b.kavelPrimary||'';
+        if(ka!==kb) return ka.localeCompare(kb);
+        return naturalNrCompare(a,b);
+      }
+      if(sortMode === 'datering'){
+        const da = parseInt((a.datering||'').replace(/\D/g,'')) || 0;
+        const db = parseInt((b.datering||'').replace(/\D/g,'')) || 0;
+        if(da!==db) return da-db;
+        return naturalNrCompare(a,b);
+      }
+      return naturalNrCompare(a,b);
+    });
+    return list;
+  }
+
+  let visibleList = [];
+
+  function attachScrubbing(card, r){
+    const media = card.querySelector('.card-media');
+    const imgEl = media.querySelector('img');
+    if(!imgEl || !r.gallery || r.gallery.length < 2) return;
+    const dots = media.querySelectorAll('.photo-dots span');
+    const badge = media.querySelector('.photo-count-badge');
+    media.addEventListener('mousemove', e=>{
+      const rect = media.getBoundingClientRect();
+      const relX = Math.min(Math.max((e.clientX - rect.left) / rect.width, 0), 0.999);
+      const gidx = Math.floor(relX * r.gallery.length);
+      if(imgEl.src.indexOf(r.gallery[gidx]) === -1) imgEl.src = r.gallery[gidx];
+      dots.forEach((d,i)=> d.classList.toggle('active', i===gidx));
+      if(badge) badge.textContent = (gidx+1) + '/' + r.gallery.length;
+    });
+    media.addEventListener('mouseleave', ()=>{
+      imgEl.src = r.gallery[0];
+      dots.forEach((d,i)=> d.classList.toggle('active', i===0));
+      if(badge) badge.textContent = '1/' + r.gallery.length;
+    });
+  }
+
+  function render(){
+    const list = currentFiltered();
+    visibleList = list;
+
+    resultCount.innerHTML = list.length === RAW.length
+      ? `<b>${list.length}</b> van ${RAW.length} werken getoond`
+      : `<b>${list.length}</b> van ${RAW.length} werken gevonden`;
+
+    clearBtn.classList.toggle('show', searchInput.value.trim().length > 0);
+
+    if(list.length === 0){
+      grid.innerHTML = `
+        <div class="empty-state">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <h3>Geen werken gevonden</h3>
+          <p>Pas de zoekterm of filters aan.</p>
+          <button id="resetBtn">Filters wissen</button>
+        </div>`;
+      document.getElementById('resetBtn').addEventListener('click', resetFilters);
+      return;
+    }
+
+    grid.innerHTML = list.map((r,i)=>cardHTML(r,i)).join('');
+
+    grid.querySelectorAll('.card').forEach(card=>{
+      const idx = parseInt(card.dataset.idx);
+      const r = visibleList[idx];
+      card.addEventListener('click', ()=> openModal(idx));
+      card.addEventListener('keydown', e=>{
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          openModal(idx);
+        }
+      });
+      bindImageFallback(card.querySelector('.card-media'), r);
+      attachScrubbing(card, r);
+    });
+  }
+
+  function resetFilters(){
+    searchInput.value = '';
+    kavelFilter.value = '';
+    materiaalFilter.value = '';
+    plaatsFilter.value = '';
+    sortSelect.value = 'nr';
+    render();
+  }
+
+  let modalGalleryIdx = 0;
+
+  function renderModalMedia(r){
+    const mediaEl = modal.querySelector('.modal-media');
+    if(!r.gallery || r.gallery.length === 0){
+      mediaEl.innerHTML = placeholderHTML(r);
+      return;
+    }
+    const multi = r.gallery.length > 1;
+    mediaEl.innerHTML = `
+      <img src="${r.gallery[modalGalleryIdx]}" alt="${escapeHTML(r.titel)}" data-record-img="1">
+      ${multi ? `<button class="modal-nav prev" aria-label="Vorige foto">&#8249;</button>
+      <button class="modal-nav next" aria-label="Volgende foto">&#8250;</button>
+      <div class="modal-photo-count">${modalGalleryIdx+1}/${r.gallery.length}</div>` : ''}`;
+    bindImageFallback(mediaEl, r);
+    if(multi){
+      mediaEl.querySelector('.prev').addEventListener('click', ()=>{
+        modalGalleryIdx = (modalGalleryIdx - 1 + r.gallery.length) % r.gallery.length;
+        renderModalMedia(r);
+      });
+      mediaEl.querySelector('.next').addEventListener('click', ()=>{
+        modalGalleryIdx = (modalGalleryIdx + 1) % r.gallery.length;
+        renderModalMedia(r);
+      });
+    }
+  }
+
+  function openModal(idx){
+    const r = visibleList[idx];
+    if(!r) return;
+    modalGalleryIdx = 0;
+    const plaatsDisplay = r.plaats ? r.plaats : 'n.n.b.';
+    modal.innerHTML = `
+      <button class="modal-close" aria-label="Sluiten">&times;</button>
+      <div class="modal-media"></div>
+      <div class="modal-info">
+        <div class="modal-eyebrow">Kavel ${escapeHTML(r.kavel || '—')} · ${escapeHTML(r.nr)}</div>
+        <h2 class="modal-title">${escapeHTML(r.titel) || 'Zonder titel'}</h2>
+        <div class="modal-table">
+          <div><span>Materiaal</span><span>${escapeHTML(r.materiaal) || '—'}</span></div>
+          <div><span>Datering</span><span>${escapeHTML(r.datering) || '—'}</span></div>
+          <div><span>Afmetingen</span><span>${escapeHTML(r.afmeting) || '—'}</span></div>
+          <div><span>Kavel</span><span>${escapeHTML(r.kavel) || '—'}</span></div>
+          <div><span>Plaats</span><span>${escapeHTML(plaatsDisplay)}</span></div>
+        </div>
+        <div class="modal-note">${r.gallery && r.gallery.length ? r.gallery.length + ' foto(\'s) gevonden voor dit werk.' : 'Nog geen foto gekoppeld — controleer de bestandsnaam in images/.'}</div>
+      </div>`;
+    renderModalMedia(r);
+    overlay.classList.add('open');
+    modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  overlay.addEventListener('click', e=>{
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape') closeModal();
+  });
+
+  searchInput.addEventListener('input', render);
+  kavelFilter.addEventListener('change', render);
+  materiaalFilter.addEventListener('change', render);
+  plaatsFilter.addEventListener('change', render);
+  sortSelect.addEventListener('change', render);
+  clearBtn.addEventListener('click', ()=>{ searchInput.value=''; render(); searchInput.focus(); });
+
+  render();
+  loadManifest();
+})();
+</script>
+
+
+<script src="../js/nav.js"></script>
+</body>
+</html>
