@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Museum Herman De Cuyper</title>
+  <meta name="description" content="Museum Herman De Cuyper, Blaasveld (Willebroek) — Kies uw taal / Choisissez votre langue / Choose your language">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--tactile-donker);
+      background-image: linear-gradient(160deg, #4a4a4a 0%, #2e2e2e 100%);
+    }
+
+    .taal-keuze {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .taal-keuze h1 {
+      font-family: 'Architects Daughter', cursive;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: #ffffff;
+      margin-bottom: .5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,.4);
+    }
+
+    .taal-keuze .ondertitel {
+      font-family: 'Open Sans', sans-serif;
+      font-size: .85rem;
+      color: #aaaaaa;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+
+    .taal-knoppen {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .taal-knop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .6rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 6px;
+      padding: 1.8rem 2.5rem;
+      color: #f0f0f0;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, transform .2s;
+      min-width: 140px;
+    }
+    .taal-knop:hover {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.35);
+      transform: translateY(-4px);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .taal-knop .vlag {
+      font-size: 2.8rem;
+      line-height: 1;
+    }
+
+    .taal-knop .taal-naam {
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+
+    .taal-knop .taal-sub {
+      font-family: 'Open Sans', sans-serif;
+      font-size: .75rem;
+      color: #999999;
+      letter-spacing: .06em;
+    }
+
+    .taal-keuze .adres {
+      font-family: 'Open Sans', sans-serif;
+      font-size: .78rem;
+      color: #666666;
+      letter-spacing: .04em;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@300;400&display=swap');
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="taal-keuze">
+    <h1>Museum Herman De Cuyper</h1>
+    <p class="ondertitel">Blaasveld · Willebroek · België</p>
+
+    <nav class="taal-knoppen" aria-label="Taalkeuze">
+      <a href="nl/index.html" class="taal-knop" hreflang="nl">
+        <span class="vlag">🇧🇪</span>
+        <span class="taal-naam">Nederlands</span>
+        <span class="taal-sub">Ga verder</span>
+      </a>
+      <a href="fr/index.html" class="taal-knop" hreflang="fr">
+        <span class="vlag">🇫🇷</span>
+        <span class="taal-naam">Français</span>
+        <span class="taal-sub">Continuer</span>
+      </a>
+      <a href="en/index.html" class="taal-knop" hreflang="en">
+        <span class="vlag">🇬🇧</span>
+        <span class="taal-naam">English</span>
+        <span class="taal-sub">Continue</span>
+      </a>
+    </nav>
+
+    <p class="adres">Mechelsesteenweg 249 · B-2830 Blaasveld (Willebroek)</p>
+  </div>
+
+</body>
+</html>
