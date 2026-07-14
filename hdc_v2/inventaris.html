@@ -4,38 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inventaris beeldhouwwerken — Museum Herman De Cuyper</title>
-  <meta name="description" content="Doorzoekbare inventaris van 350+ beeldhouwwerken uit de nalatenschap van Herman De Cuyper, met materiaal, datering en afmetingen.">
-
-  <!-- Site navigatie lettertypes -->
+  <meta name="description" content="Doorzoekbare inventaris van 350+ beeldhouwwerken uit de nalatenschap van Herman De Cuyper.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Open+Sans:wght@300;400;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Site navigatie stijlen -->
-  <link rel="stylesheet" href="../css/style.css">
+  <!-- Site navigatie CSS — pad vanuit root -->
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Inventaris eigen stijlen (dark theme) -->
+  <!-- Inventaris eigen dark-theme stijlen -->
   <style>
-    /* Reset body voor inventaris dark theme */
+    /* Herstel body naar dark theme na site.css reset */
     body {
-      background: #292b21 !important;
+      background: #292b21;
       background-image:
         radial-gradient(ellipse at top left, rgba(111,128,102,0.10), transparent 55%),
-        radial-gradient(ellipse at bottom right, rgba(169,103,61,0.08), transparent 55%) !important;
-      color: #efece2 !important;
+        radial-gradient(ellipse at bottom right, rgba(169,103,61,0.08), transparent 55%);
+      color: #efece2;
     }
-
-    /* Zorg dat site-header bovenaan blijft en niet door inventaris controls wordt overschreven */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-    }
-
-    /* Controls wrap z-index lager dan site-header */
-    .controls-wrap {
-      z-index: 20 !important;
-    }
+    /* Zorg dat site-header boven inventaris controls blijft */
+    .site-header { z-index: 200; }
+    .controls-wrap { z-index: 20 !important; top: 0 !important; }
 
 
   :root{
@@ -585,31 +574,29 @@
 </head>
 <body>
 
-<!-- Site navigatie -->
 <header class="site-header">
   <nav class="nav-inner" aria-label="Hoofdnavigatie">
-    <a href="../nl/index.html" class="site-logo">Herman De Cuyper<span>Museum · Blaasveld</span></a>
+    <a href="nl/index.html" class="site-logo">Herman De Cuyper<span>Museum · Blaasveld</span></a>
     <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false"><span></span><span></span><span></span></button>
     <ul class="nav-links">
-      <li><a href="../nl/index.html">Home</a></li>
-      <li><a href="../nl/museum.html">Museum</a></li>
-      <li><a href="../nl/biografie.html">Biografie</a></li>
-      <li><a href="../nl/collectie.html">Collectie</a></li>
-      <li><a href="../nl/evolutie.html">Artistieke evolutie</a></li>
-      <li><a href="../nl/klein-brabant.html">Klein-Brabant</a></li>
-      <li><a href="../nl/activiteiten.html">Activiteiten</a></li>
-      <li><a href="../nl/informatie.html">Informatie</a></li>
-      <li><a href="../nl/contact.html">Contact</a></li>
+      <li><a href="nl/index.html">Home</a></li>
+      <li><a href="nl/museum.html">Museum</a></li>
+      <li><a href="nl/biografie.html">Biografie</a></li>
+      <li><a href="nl/collectie.html">Collectie</a></li>
+      <li><a href="nl/evolutie.html">Artistieke evolutie</a></li>
+      <li><a href="nl/klein-brabant.html">Klein-Brabant</a></li>
+      <li><a href="nl/activiteiten.html">Activiteiten</a></li>
+      <li><a href="nl/informatie.html">Informatie</a></li>
+      <li><a href="nl/contact.html">Contact</a></li>
       <li><a href="inventaris.html" class="actief">Inventaris</a></li>
     </ul>
     <div class="taal-switch">
-      <a href="../fr/index.html" hreflang="fr">FR</a>
-      <a href="../en/index.html" hreflang="en">EN</a>
+      <a href="fr/index.html" hreflang="fr">FR</a>
+      <a href="en/index.html" hreflang="en">EN</a>
     </div>
   </nav>
 </header>
 
-<!-- Inventaris inhoud -->
 
 
 <header class="masthead">
@@ -1017,6 +1004,6 @@
 </script>
 
 
-<script src="../js/nav.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>
